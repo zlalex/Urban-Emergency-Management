@@ -3,7 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import elementUI from './components/elements'
+import './echarts'
 import './utils/register'
+import './styles/reset.css'
 import './styles/index.styl'
 
 Vue.config.productionTip = false

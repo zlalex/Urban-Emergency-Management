@@ -4,3 +4,4 @@ import {
 } from './index'
 
 Vue.prototype.$goRoute = goRoute
+Vue.prototype.$BUS = new Vue()
