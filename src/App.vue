@@ -1,9 +1,11 @@
 <template>
-	<div class="Urban-Emergency-Management">
-	</div>
+    <div class="Urban-Emergency-Management">
+        <router-view />
+    </div>
 </template>
 <script>
 export default {
-	name: 'app',
-}
+    name: 'app',
+	mounted() {},
+};
 </script>

@@ -1,10 +1,10 @@
 <template>
-	<div class="ue-danger">
+	<div class="ue-error">
 	</div>
 </template>
 <script>
 export default {
-	name: 'ue-danger',
+	name: 'ue-error',
 	mounted(){
 	}
 }

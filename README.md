@@ -64,6 +64,12 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 └── package.json               // package.json
 ```
 
+## 第三方UI库与其他依赖
+
+```
+cnpm install stylus stylus-loader element-ui babel-plugin-component vue-router axios vuex --save-dev
+```
+
 ## 编码风格
 ```js
 // 声明单一变量，无需换行
@@ -88,7 +94,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 // @copyright zhouliang@126.com
 ```
 
-## api的管理思考
+## 自言自语
+
+### api的管理思考
+
 常规的前端项目的api管理，可能是由前端集中管理一套路由路径，服务端通过切换服务器、再改本机host来实现开发、测试、生产等环境的数据交互。
 
 这样有什么好处呢，前端的工作量减少了，省事儿。有什么坏处呢？1.联调阶段依赖服务端提供接口的质量，一旦联调遇阻，进度可能会停滞，增加项目延期的风险。2.前后端分离开发时，因为跨域影响，导致api管理不灵活。
@@ -109,4 +118,32 @@ const url = {
 
 	}
 }
+// 实际情况中，大多数开发环境的api与生产环境的api相同，即：
+import mock from './api.mock.js'
+import prod from './api.prod.js'
+const urlMap = {
+	mock,
+	prod
+}
+```
+
+然后在 `package.json` 中写入环境变量，根据不同的npm命令，管理对应不同的api。
+```js
+// package.json
+{
+  "scripts": {
+    "build": "vue-cli-service build --mode prod",
+    "dev": "vue-cli-service serve --mode mock",
+    "serve": "vue-cli-service serve --mode dev",
+    "lint": "vue-cli-service lint"
+  }
+}
+
+// # 根目录下创建文件.env.dev 写入环境变量
+NODE_ENV = development
+VUE_APP_ENV = dev
+
+// 最后获取变量取对应的环境的api
+const env = process.env.VUE_APP_ENV
+const glubalUrl = urlMap[env]
 ```
