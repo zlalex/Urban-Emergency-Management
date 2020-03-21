@@ -33,9 +33,9 @@ const VueRouter = new Router({
 })
 
 // 权限与路由拦截
-VueRouter.beforeEach((to, from, next) => {
-	console.log({ to: to.path, from: from.path })
-	next()
-})
+// VueRouter.beforeEach((to, from, next) => {
+// 	console.log({ to: to.path, from: from.path })
+// 	next()
+// })
 
 export default VueRouter

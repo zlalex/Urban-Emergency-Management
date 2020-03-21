@@ -14,4 +14,5 @@ const result = Object.keys(globalUrl).reduce((total, api) => {
 	total[api] = prefix + globalUrl[api]
 	return total
 }, {})
+
 export default result
