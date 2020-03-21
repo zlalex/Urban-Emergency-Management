@@ -14,7 +14,6 @@ const handlerRequestError = (error) => {
 
 class Ajax {
 	get(url, data) {
-		debugger
 		return axios.get(url, { params: data })
 			.then(response => response.data)
 			.catch(handlerRequestError)
