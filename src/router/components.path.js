@@ -1,11 +1,14 @@
-const defaultPage = () => import(/* webpackChunkName: "group-foo" */'@/views/default/default.vue')
-const indexPage = () => import(/* webpackChunkName: "group-foo" */'@/views/index/index.vue')
-const automobilePage = () => import(/* webpackChunkName: "group-foo" */'@/views/automobile/automobile.vue')
-const loginPage = () => import(/* webpackChunkName: "group-foo" */'@/views/login/login.vue')
-const errorPage = () => import(/* webpackChunkName: "group-foo" */'@/views/error/error.vue')
-const emptyPage = () => import(/* webpackChunkName: "group-foo" */'@/views/empty/empty.vue')
+const _import_ = require('./_import_' + process.env.NODE_ENV + '.js')
+// [tips]常规懒加载
+// const defaultPage = () => import(/* webpackChunkName: "pageName" */'@/views/default/default.vue')
+// [tips]开发环境时不开启路由懒加载，减少运行时热更新编译时长
+const defaultPage = _import_('default/default')
+const indexPage = _import_('index/index')
+const loginPage = _import_('login/login')
+const errorPage = _import_('error/error')
+const emptyPage = _import_('empty/empty')
+const automobilePage = _import_('automobile/automobile')
 
-// 路由懒加载
 export default {
 	defaultPage,
 	indexPage,

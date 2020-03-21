@@ -147,3 +147,20 @@ VUE_APP_ENV = dev
 const env = process.env.VUE_APP_ENV
 const glubalUrl = urlMap[env]
 ```
+
+### 路由懒加载的优化
+
+> 路由懒加载能做到性能优化的原因就是：webpack会将懒加载的路由分块打包到一个单独的js中去，只有加载该路由的时候，才会加载这个chunk文件。
+
+开发环境时如果开启路由懒加载，当项目逐渐变得庞大时，会导致热更新时长变久。解决方法是：生产环境时才开启路由懒加载，开发环境默认加载路由组件。
+
+路由懒加载导致热更新时长变久的可能原因是：异步加载导致 webpack 的 cache 生效。
+
+```js
+// _import_development.js
+module.exports = file => require('@/views/' + file + '.vue').default
+// _import_production.js
+module.exports = file => () => import('@/views/'+ file +'.vue')
+// router/components.path.js
+const _import_ = require('./_import_' + process.env.NODE_ENV + '.js')
+```
