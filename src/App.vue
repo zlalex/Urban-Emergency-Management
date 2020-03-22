@@ -19,7 +19,10 @@ export default {
 
         initPage() {
             const store = getSessionStorage();
-            if (store && store.user && !store.user.token) {
+            const current = this.$route.path;
+			const token = store && store.user ? store.user.token : '';
+
+            if (!token && current !== '/login') {
                 this.$goRoute('/login');
             } else {
                 this.RENDER_STATE(store);
