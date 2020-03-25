@@ -1,11 +1,7 @@
 <template>
 	<div class="ue-index">
+		<ue-index-layer />
+		<ue-map/>
 	</div>
 </template>
-<script>
-export default {
-	name: 'ue-index',
-	mounted(){
-	}
-}
-</script>
+<script src="./index.js"></script>

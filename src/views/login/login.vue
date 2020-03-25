@@ -1,16 +1,19 @@
 <template>
     <div class="ue-login">
-		<div class="ue-fixed-center ue-login-box">
-			<ue-radio-button
-				v-model="type"
-				:data="[
+        <div class="ue-fixed-center ue-login-box">
+			<p class="ue-login-title ue-abs">城市危化品全生命周期智能监控处置系统</p>
+            <ue-radio-button
+                v-model="type"
+                :data="[
 					{name: '二维码登录', value: '2'},
 					{name: 'PKI 登录', value: '1'},
 					{name: '用户名/密码登录', value: '0'}
 				]"
-			/>
-			<div :is="loginComponent"></div>
-		</div>
+            />
+            <div class="ue-login-form">
+                <div :is="loginComponent" @submit="handleSubmit"></div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -19,26 +22,29 @@ import username from './login-components/username';
 import qrcode from './login-components/qrcode';
 import pki from './login-components/pki';
 export default {
-	name: 'ue-login',
+    name: 'ue-login',
 
     data() {
         return {
             type: '2'
         };
-	},
+    },
 
     components: {
         username,
         qrcode,
         pki
-	},
+    },
 
     methods: {
-        ...mapActions(['loginAction'])
-	},
+        ...mapActions(['loginAction']),
+        handleSubmit() {
+            this.loginAction();
+        }
+    },
 
     computed: {
-		...mapGetters(['getterUserToken']),
+        ...mapGetters(['getterUserToken']),
 
         loginComponent() {
             let result = '';
@@ -55,7 +61,7 @@ export default {
             }
             return result;
         }
-	},
+    },
 
     watch: {
         getterUserToken(val) {

@@ -94,6 +94,8 @@ cnpm install stylus stylus-loader element-ui babel-plugin-component vue-router a
 // @copyright zhouliang@126.com
 ```
 
+## 考虑可能需要兼容ie浏览器，暂不使用flex布局
+
 ## 自言自语
 
 ### api的管理思考

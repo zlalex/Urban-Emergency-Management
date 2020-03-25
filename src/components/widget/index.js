@@ -1,9 +1,9 @@
-import RadioButton from './ue-radio-button.vue'
-import icon from './ue-icon.vue'
+import map from './map.vue'
+import layerSection from './layer-section.vue'
 
 const compontents = [
-	RadioButton,
-	icon
+	map,
+	layerSection
 ]
 
 const install = Vue => {
@@ -17,5 +17,5 @@ const install = Vue => {
 typeof window !== 'undefined' && window.Vue && install(window.Vue)
 
 export default {
-	install,
+	install
 }

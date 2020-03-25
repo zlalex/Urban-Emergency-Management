@@ -1,6 +1,6 @@
 <template>
-	<div class="ue-login-qrcode">
-
+	<div class="ue-login-item ue-img-wrap">
+		<img src="@/assets/img-qrcode.jpeg" alt="">
 	</div>
 </template>
 <script>

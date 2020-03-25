@@ -1,87 +1,115 @@
-*{
-	margin 0
-	padding 0
-	box-sizing border-box
-	&::after,
-	&::before{
-		box-sizing border-box
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+	&::after, &::before {
+		box-sizing: border-box;
 	}
 }
 
-.ue-fl{
-	float left
+.ue-fl {
+	float: left;
 }
 
-.ue-fr{
-	float right
+.ue-fr {
+	float: right;
 }
 
-.ue-clearfix{
-	&::after{
-		content ''
-		display table
-		clear both
-	}
-	&::before{
-		content ''
-		display table
-	}
-}
-
-
-.ue-align-center{
-	text-align center
-}
-
-.ue-align-right{
-	text-align right
-}
-
-.ue-absolute{
-	position absolute
-}
-
-.ue-relative,
-.ue-clearfix{
-	position relative
-}
-
-.ue-fixed{
-	position fixed
-}
-
-.ue-ellipsis{
-	white-space nowrap
-	overflow hidden
-	text-overflow ellipsis
-	&.line-clamp-2{
-		width 100%
-		word-break break-all
-		display -webkit-box
-		-webkit-box-orient vertical
-		-webkit-line-clamp 2
-	}
-}
-
-.ue-img-wrap{
-	width 100px
-	text-align center
+.ue-clearfix {
 	&::after {
-		content ''
-		vertical-align middle
+		content: '';
+		display: table;
+		clear: both;
 	}
-	img {
-		width 100%
-		vertical-align middle
+
+	&::before {
+		content: '';
+		display: table;
 	}
 }
 
-.ue-rel,
-.ue-login{
+.ue-align-center {
+	text-align: center;
+}
+
+.ue-align-right {
+	text-align: right;
+}
+
+.ue-absolute {
+	position: absolute;
+}
+
+.ue-relative, .ue-clearfix {
 	position: relative;
 }
 
-.ue-abs,
-.ue-fixed-center{
+.ue-fixed {
+	position: fixed;
+}
+
+.ue-ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	&.line-clamp-2 {
+		width: 100%;
+		word-break: break-all;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+	}
+}
+
+.ue-img-wrap {
+	width: 100px;
+	text-align: center;
+
+	&::after {
+		content: '';
+		vertical-align: middle;
+	}
+
+	img {
+		width: 100%;
+		vertical-align: middle;
+	}
+}
+
+.ue-rel, .ue-login {
+	position: relative;
+}
+
+.ue-abs, .ue-fixed-center {
 	position: absolute;
+}
+
+.ue-icon {
+	width: 1em;
+	height: 1em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+.ue-justify-dot
+.ue-echarts{
+	position relative
+	&::after,
+	&::before{
+		content: '';
+		position: absolute;
+		width: 6px;
+		height: 6px;
+		bottom: -3px;
+		background-color: #4757a4;
+	}
+	&::after{
+		right: -3px;
+	}
+	&::before{
+		left: -3px;
+	}
 }
