@@ -76,10 +76,15 @@ $gray = rgba(204, 204, 204, 0.2);
 			padding: 10px;
 		}
 	}
+	.ue-echarts{
+		width: 100%;
+    	display: block;
+	}
 	.ue-section-centent{
-		padding: 10px;
+		padding: 10px 0;
 		margin-top: 10px;
 		border: 1px #4757a4 solid;
+		background: rgba(0,0,0, 0.3);
 		.ue-echarts{
 
 			&::after,
@@ -92,6 +97,53 @@ $gray = rgba(204, 204, 204, 0.2);
 			&::before{
 				left: -13px;
 			}
+		}
+	}
+}
+
+.ue-section-item{
+	width: 50%;
+	font-size: 12px;
+	padding: 2px;
+}
+
+.ue-row-tablewrap{
+	padding: 4px;
+	overflow-x: auto;
+}
+
+.ue-row-table{
+	border-top: 1px solid rgba(255,255,255,.3);
+	border-left: 1px solid rgba(255,255,255,.3);
+	td{
+		padding: 4px 2px;
+		text-align: left ;
+		border-right: 1px solid rgba(255,255,255,.3);
+		border-bottom: 1px solid rgba(255,255,255,.3);
+	}
+	.ue-cell{
+		width: auto;
+		white-space nowrap
+		text-overflow: ellipsis;
+		overflow: hidden;
+		font-size: 12px;
+	}
+}
+
+.ue-section-item-title{
+	font-size: 14px;
+	color: #97cdfb;
+}
+
+.ue-layer-img{
+	display: flex;
+	padding: 10px 10px 0 10px;
+	img{
+		flex: 1
+		width: 32%;
+		margin-right: 2%
+		&:last-child{
+			margin-right: 0;
 		}
 	}
 }
