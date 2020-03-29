@@ -1,34 +1,49 @@
 <template>
-	<div class="ue-echarts-tpl">
-		<p class="ue-echarts-title">{{title}}</p>
-		<canvas v-if="canvasName" class="ue-echarts" :ref="canvasName"></canvas>
-		<slot v-else />
-	</div>
+    <div class="ue-echarts-tpl">
+        <p class="ue-echarts-title">{{title}}</p>
+        <canvas v-if="canvasName" class="ue-echarts" :ref="canvasName"></canvas>
+        <slot v-else />
+    </div>
 </template>
 <script>
 export default {
-	name: 'index-echarts-tpl',
-	props:{
-		title: String,
-		canvasName: String,
-		echartsOptions: Object
-	},
-	data() {
-		return {
-			myChart: null
-		}
-	},
-	mounted(){
-		try{
-			const elem = this.$refs[this.canvasName]
-			this.myChart = elem ? this.$echarts.init(elem) : null
-			this.echartsOptions && this.renderEcharts()
-		}catch(e){}
-	},
-	methods: {
-		renderEcharts(){
-			this.myChart.setOption(this.echartsOptions)
-		}
-	}
-}
+    name: 'index-echarts-tpl',
+    props: {
+        title: String,
+        canvasName: String,
+        echartsOptions: Object
+    },
+    data() {
+        return {
+            myChart: null
+        };
+    },
+    mounted() {
+        try {
+            const elem = this.$refs[this.canvasName];
+            this.myChart = elem ? this.$echarts.init(elem) : null;
+            this.echartsOptions && this.renderEcharts();
+        } catch (e) {}
+    },
+    methods: {
+        renderEcharts() {
+			let index = 0;
+			const myChart = this.myChart
+			const series = this.echartsOptions.series[0]
+
+			myChart.setOption(this.echartsOptions);
+            setInterval(()=> {
+                myChart.dispatchAction({
+                    type: 'showTip',
+                    seriesIndex: 0,
+                    dataIndex: index
+                });
+                ++index
+                if (index > series.data.length) {
+                    index = 0;
+                }
+            }, 1000);
+        }
+    }
+};
 </script>
