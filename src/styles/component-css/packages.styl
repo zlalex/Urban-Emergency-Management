@@ -65,6 +65,9 @@ $linkColor = $blue;
 			background-color: $hoverBlue;
 			border-color: $hoverBlue;
 		}
+		&:active{
+			background-color: #006699;
+		}
 	}
 
 	&.ue-btn-large {
@@ -74,12 +77,14 @@ $linkColor = $blue;
 
 .ue-form-item {
 	overflow: hidden;
+
 	.ue-form-label {
 		float: left;
 		width: 50px;
 		text-align: right;
 		font-size: 14px;
 		line-height: 28px;
+
 		&+input {
 			float: left;
 			margin-left: 10px;

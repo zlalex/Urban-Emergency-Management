@@ -1,11 +1,15 @@
 import {
 	Message,
 	MessageBox,
+	Table,
+	TableColumn,
 } from 'element-ui'
 
 const compontents = [
 	Message,
 	MessageBox,
+	Table,
+	TableColumn,
 ]
 
 const install = Vue => {

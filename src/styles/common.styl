@@ -41,7 +41,7 @@
 	position: absolute;
 }
 
-.ue-relative, .ue-clearfix {
+.ue-relative {
 	position: relative;
 }
 
@@ -94,22 +94,24 @@
 	overflow: hidden;
 }
 
-.ue-justify-dot
-.ue-echarts{
-	position relative
-	&::after,
-	&::before{
-		content: '';
-		position: absolute;
-		width: 6px;
-		height: 6px;
-		bottom: -3px;
-		background-color: #4757a4;
+.ue-justify-dot {
+	text-align: center;
+	font-weight: bold;
+}
+
+.ue-index{
+	.el-table {
+		th,
+		td {
+			padding: 2px 0;
+		}
 	}
-	&::after{
-		right: -3px;
-	}
-	&::before{
-		left: -3px;
+	.el-table__row {
+		.cell {
+			padding: 0 4px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
 	}
 }

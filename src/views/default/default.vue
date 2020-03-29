@@ -5,9 +5,6 @@
 </template>
 <script>
 export default {
-    name: 'ue-default-layout',
-    mounted() {
-
-	}
+    name: 'ue-default-layout'
 };
 </script>

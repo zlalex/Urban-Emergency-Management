@@ -23,6 +23,7 @@ export default {
         };
     },
     methods: {
+		// 需要完善登录框表单校验
         handleClick() {
             this.password && this.username && this.$emit('submit');
         }

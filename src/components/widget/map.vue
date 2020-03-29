@@ -1,9 +1,6 @@
 <template>
     <div class="ue-map-wrap">
         <div id="container"></div>
-		<button class="ue-abs"
-			style="z-index:2; top: 10px; left: 10px; padding: 2px 4px;"
-			@click="carMovePath">重放</button>
     </div>
 </template>
 <script>
@@ -55,15 +52,35 @@ export default {
         renderMap() {
             const BMap = this.BMap;
             const map = this.map;
-            const shanghaiX = this.positionX || 31.40527;
-            const shanghaiY = this.positionY || 121.48941;
+            const shanghaiX = this.positionX || 31.18;
+            const shanghaiY = this.positionY || 121.43;
 
             // 定位中心
-            map.centerAndZoom(new BMap.Point(shanghaiY, shanghaiX), 15);
-			this.carMovePath()
-		},
+            map.centerAndZoom(new BMap.Point(shanghaiY, shanghaiX), 12);
+            map.setMapStyle({ style: 'dark' });
+            this.renderBusiness();
+        },
 
-		carMovePath(){
+        renderBusiness() {
+            const BMap = this.BMap;
+            const map = this.map;
+
+            // 编写自定义函数,创建标注
+            function addMarker(point) {
+                const marker = new BMap.Marker(point);
+                map.addOverlay(marker);
+            }
+
+            for (let i = 0; i < 10; i++) {
+                const x = 121.43 + Math.random() / 10;
+                const y = 31.18 + Math.random() / 10;
+                const point = new BMap.Point(x, y);
+
+                addMarker(point);
+            }
+        },
+
+        carMovePath() {
             const BMap = this.BMap;
             const map = this.map;
 
@@ -81,7 +98,7 @@ export default {
                     //小车图片
                     imageOffset: new BMap.Size(0, 10) //图片的偏移量。为了是图片底部中心对准坐标点。
                 }
-			);
+            );
 
             const driving2 = new BMap.DrivingRoute(map, {
                 renderOptions: { map: map, autoViewport: true }
@@ -96,7 +113,7 @@ export default {
                         .getResults()
                         .getPlan(0)
                         .getRoute(0)
-						.getPath(); //通过驾车实例，获得一系列点的数组
+                        .getPath(); //通过驾车实例，获得一系列点的数组
 
                     const paths = pts.length; //获得有几个点
                     const carMk = new BMap.Marker(pts[0], { icon: myIcon });
@@ -121,7 +138,7 @@ export default {
             setTimeout(function() {
                 run();
             }, 1500);
-		}
+        }
     },
 
     mounted() {
@@ -132,7 +149,10 @@ export default {
         // 鼠标滚动缩放
         this.map.enableScrollWheelZoom(true);
 
-        this.renderMap();
+		this.renderMap();
+		this.$BUS.$on('CAR_MOVE_START', ()=>{
+			this.carMovePath()
+		})
     }
 };
 </script>
