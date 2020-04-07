@@ -1,7 +1,7 @@
 <template>
     <div class="ue-echarts-tpl">
         <p class="ue-echarts-title">{{title}}</p>
-        <canvas v-if="canvasName" class="ue-echarts" :ref="canvasName"></canvas>
+        <canvas :width="width" :height="height" v-if="canvasName" class="ue-echarts" :ref="canvasName"></canvas>
         <slot v-else />
     </div>
 </template>
@@ -11,7 +11,9 @@ export default {
     props: {
         title: String,
         canvasName: String,
-        echartsOptions: Object
+		echartsOptions: Object,
+		width: String,
+		height: String,
     },
     data() {
         return {

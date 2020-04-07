@@ -1,27 +1,23 @@
 <template>
 	<div class="ue-index">
-		<ue-index-topbar />
-
-		<div class="ue-index-left">
+		<div class="ue-layout-left">
 			<ue-index-lefttop />
 			<ue-index-leftbottom />
 		</div>
 
-		<div class="ue-index-right">
+		<div class="ue-layout-right">
 			<ue-index-righttop />
 			<ue-index-rightbottom />
 		</div>
 
-		<div class="ue-index-center">
+		<div class="ue-layout-center">
 			<ue-index-centertop />
 		</div>
 
 		<ue-index-operate />
-		<ue-map/>
 	</div>
 </template>
 <script>
-import ueIndexTopbar from './index-components/index-topbar'
 import ueIndexLefttop from './index-components/index-lefttop'
 import ueIndexLeftbottom from './index-components/index-leftbottom'
 import ueIndexRighttop from './index-components/index-righttop'
@@ -31,7 +27,6 @@ import ueIndexOperate from './index-components/index-centerbottom'
 export default {
 	name: 'ue-index',
 	components:{
-		ueIndexTopbar,
 		ueIndexLefttop,
 		ueIndexLeftbottom,
 		ueIndexRighttop,

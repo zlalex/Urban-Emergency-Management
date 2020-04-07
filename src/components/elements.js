@@ -3,6 +3,14 @@ import {
 	MessageBox,
 	Table,
 	TableColumn,
+	Timeline,
+	TimelineItem,
+	Step,
+	Steps,
+	Dropdown,
+	DropdownItem,
+	DropdownMenu,
+	Avatar
 } from 'element-ui'
 
 const compontents = [
@@ -10,6 +18,14 @@ const compontents = [
 	MessageBox,
 	Table,
 	TableColumn,
+	Timeline,
+	TimelineItem,
+	Step,
+	Steps,
+	Dropdown,
+	DropdownMenu,
+	DropdownItem,
+	Avatar
 ]
 
 const install = Vue => {

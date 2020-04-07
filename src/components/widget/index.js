@@ -1,11 +1,13 @@
 import map from './map.vue'
 import indexSection from './index-section.vue'
 import indexEchartsTpl from './index-echarts-tpl.vue'
+import indexTopbar from './index-topbar.vue'
 
 const compontents = [
 	map,
 	indexSection,
-	indexEchartsTpl
+	indexEchartsTpl,
+	indexTopbar
 ]
 
 const install = Vue => {

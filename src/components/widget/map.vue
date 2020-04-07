@@ -1,5 +1,5 @@
 <template>
-    <div class="ue-map-wrap">
+    <div class="ue-map-wrap ue-abs" style="top: 0; left: 0;">
         <div id="container"></div>
     </div>
 </template>

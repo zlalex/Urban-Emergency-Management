@@ -7,6 +7,7 @@ const indexPage = _import_('index/index')
 const loginPage = _import_('login/login')
 const errorPage = _import_('error/error')
 const emptyPage = _import_('empty/empty')
+const eventPage = _import_('event/events')
 const automobilePage = _import_('automobile/automobile')
 
 export default {
@@ -16,4 +17,5 @@ export default {
 	loginPage,
 	errorPage,
 	emptyPage,
+	eventPage
 }

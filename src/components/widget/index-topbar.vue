@@ -1,0 +1,106 @@
+<template>
+    <div class="ue-index-topbar ue-clearfix">
+        <div class="ue-topbar-left ue-fl">
+            <p>上海: 多云 14℃ 风向：西北 风力：2级 风速：2.5M/S</p>
+        </div>
+
+        <div class="ue-topbar-right ue-fr">
+            <div class="ue-fl">
+                <el-dropdown>
+                    <el-avatar class="avatar" size="medium" src="/img/img-avatar.png"></el-avatar>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item>
+                            <div class="ue-dropdown-col">
+                                <span>用户名</span>
+                                <span>管理员</span>
+                            </div>
+                        </el-dropdown-item>
+                        <el-dropdown-item>
+                            <div class="ue-dropdown-col">
+                                <span>所属部门</span>
+                                <span>应急管理局科技规划处</span>
+                            </div>
+                        </el-dropdown-item>
+                        <el-dropdown-item>
+                            <div class="ue-dropdown-col">
+                                <span>权限</span>
+                                <span>高级用户</span>
+                            </div>
+                        </el-dropdown-item>
+                        <el-dropdown-item>
+							<div class="ue-txt__center">退出</div>
+                        </el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
+            </div>
+
+            <div class="ue-fl">
+                <el-dropdown>
+                    <span class="ue-dropdown-link">更多应用</span>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item>
+                            <span @click="$router.push('/')">风险监测预警系统</span>
+                        </el-dropdown-item>
+                        <el-dropdown-item>企业信息管理系统</el-dropdown-item>
+                        <el-dropdown-item>危化品信息管理系统</el-dropdown-item>
+                        <el-dropdown-item>
+                            <span @click="$router.push('/event')">危化品事故处置系统</span>
+                        </el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
+            </div>
+        </div>
+
+        <p class="ue-align-center ue-index-title">城市危化品全生命周期智能监控处置系统</p>
+    </div>
+</template>
+<script>
+export default {
+    name: 'index-topbar',
+    methods: {}
+};
+</script>
+<style lang="stylus">
+.ue-dropdown-col {
+    overflow: hidden;
+
+    span {
+        float: left;
+
+        &:first-child {
+            width: 65px;
+            padding-right: 5px;
+            color: #66b1ff;
+            text-align: justify;
+            text-align-last: justify;
+        }
+    }
+}
+.ue-txt__center{
+	text-align: center;
+}
+.ue-index-topbar {
+    height: 60px;
+    background: rgba(0, 102, 153, 0.4);
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 60px;
+    border-bottom: 1px solid #006699;
+
+    .ue-topbar-left, .ue-topbar-right {
+        padding: 0 15px;
+        font-size: 18px;
+    }
+
+    .avatar {
+        margin: 15px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .ue-dropdown-link {
+        color: #fff;
+    }
+}
+</style>

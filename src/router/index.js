@@ -3,10 +3,15 @@ import Router from 'vue-router'
 import path from './components.path'
 
 Vue.use(Router)
+console.log(path.eventPage)
 const routerMenus = [
 	{
 		path: '/',
 		component: path.indexPage
+	},
+	{
+		path: '/event',
+		component: path.eventPage
 	}
 ]
 
