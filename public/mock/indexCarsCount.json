@@ -1,16 +1,35 @@
 {
 	"code": 1,
 	"data": {
-		"user": {
-			"username": "周亮",
-			"userid": "1006"
-		},
-		"modules": [
-			"index",
-			"danger",
-			"login"
-		],
-		"token": "abcd"
+		"data": [
+			{
+				"cartNo": "沪BG4517",
+				"content": "液氨26.3",
+				"driver": "王明玉",
+				"accompany": "李保国",
+				"company": "上海中海物流公司"
+			},
+			{
+				"cartNo": "沪BD2625",
+				"content": "天然气34.5",
+				"driver": "吴文博",
+				"accompany": "张国庆",
+				"company": "上海尹鑫物流有限公司"
+			},
+			{
+				"cartNo": "沪BG4517",
+				"content": "原油",
+				"driver": "王晓峰",
+				"accompany": "孙大伟",
+				"company": "上海聚焦运输有限公司"
+			},
+			{
+				"cartNo": "沪BG4517",
+				"content": "汽油",
+				"driver": "赵宝发",
+				"accompany": "周尚文",
+				"company": "上海众宁运输有限公司"
+			}]
 	},
 	"message": "ok"
 }

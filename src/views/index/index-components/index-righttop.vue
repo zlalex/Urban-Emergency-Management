@@ -17,7 +17,7 @@
     </index-section>
 </template>
 <script>
-const week = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+const week = ['松江区', '青浦区', '奉贤区', '杨浦区', '闵行区', '宝山区', '嘉定区'];
 const grid = {
     left: '0',
     right: '0',

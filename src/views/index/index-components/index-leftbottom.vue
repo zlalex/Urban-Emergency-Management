@@ -8,15 +8,17 @@
 		<br>
         <index-echarts-tpl title="重点车辆监控信息">
             <el-table :data="tableData" style="width: 100%" @row-click="handleCarClick">
-                <el-table-column prop="date" label="日期" width="100"></el-table-column>
-                <el-table-column prop="name" label="姓名" width="80"></el-table-column>
-                <el-table-column prop="address" label="地址"></el-table-column>
+                <el-table-column prop="cartNo" label="车牌号" width="100"></el-table-column>
+                <el-table-column prop="content" label="运输品" width="80"></el-table-column>
+                <el-table-column prop="driver" label="驾驶员"></el-table-column>
+                <el-table-column prop="accompany" label="押运员"></el-table-column>
+                <el-table-column prop="company" label="运输公司"></el-table-column>
             </el-table>
         </index-echarts-tpl>
     </index-section>
 </template>
 <script>
-const week = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+const week = ['松江区', '青浦区', '奉贤区', '杨浦区', '闵行区', '宝山区', '嘉定区'];
 const grid = {
     left: '0',
     right: '0',
@@ -87,39 +89,29 @@ const carCountOpt = {
         }
     ]
 };
+//
+import { indexCarsCount } from '@/api';
 export default {
     name: 'ue-index-leftbottom',
     data() {
         return {
-            tableData: [
-                {
-                    date: '2016-05-02',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1518 弄'
-                },
-                {
-                    date: '2016-05-04',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1517 弄'
-                },
-                {
-                    date: '2016-05-01',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1519 弄'
-                },
-                {
-                    date: '2016-05-03',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1516 弄'
-                }
-            ],
+            tableData: [],
             carCountOpt
         };
 	},
 	methods:{
 		handleCarClick(){
 			this.$BUS.$emit('CAR_MOVE_START')
+		},
+		getIndexCarsCount(){
+			indexCarsCount().then(res=>{
+				console.log(res)
+				this.tableData = res.data.data
+			})
 		}
+	},
+	mounted(){
+		this.getIndexCarsCount()
 	}
 };
 </script>

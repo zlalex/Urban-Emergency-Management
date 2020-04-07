@@ -6,7 +6,7 @@
 
         <div class="ue-topbar-right ue-fr">
             <div class="ue-fl">
-                <el-dropdown>
+                <el-dropdown style="width: 60px;height: 60px;">
                     <el-avatar class="avatar" size="medium" src="/img/img-avatar.png"></el-avatar>
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item>
@@ -28,7 +28,7 @@
                             </div>
                         </el-dropdown-item>
                         <el-dropdown-item>
-							<div class="ue-txt__center">退出</div>
+							<div class="ue-txt__center" @click="goRoute('/login')">退出</div>
                         </el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
@@ -39,12 +39,12 @@
                     <span class="ue-dropdown-link">更多应用</span>
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item>
-                            <span @click="$router.push('/')">风险监测预警系统</span>
+                            <span @click="goRoute('/')">风险监测预警系统</span>
                         </el-dropdown-item>
                         <el-dropdown-item>企业信息管理系统</el-dropdown-item>
                         <el-dropdown-item>危化品信息管理系统</el-dropdown-item>
                         <el-dropdown-item>
-                            <span @click="$router.push('/event')">危化品事故处置系统</span>
+                            <span @click="goRoute('/event')">危化品事故处置系统</span>
                         </el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
@@ -57,7 +57,11 @@
 <script>
 export default {
     name: 'index-topbar',
-    methods: {}
+    methods: {
+		goRoute(path){
+			path !== this.$route.path && this.$router.push(path)
+		}
+	}
 };
 </script>
 <style lang="stylus">
