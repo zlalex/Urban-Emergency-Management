@@ -19,7 +19,7 @@
 </template>
 <script>
 import eventLayoutLeft from './event-components/event-layout-left'
-import eventLayoutRight from './event-components/event-layout-left'
+import eventLayoutRight from './event-components/event-layout-right'
 export default {
 	name: 'ue-event',
 	components: {

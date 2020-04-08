@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import path from './components.path'
 
 Vue.use(Router)
-console.log(path.eventPage)
 const routerMenus = [
 	{
 		path: '/',
@@ -33,6 +32,18 @@ const VueRouter = new Router({
 		{
 			path: '/empty',
 			component: path.emptyPage,
+		},
+		{
+			path: '/product',
+			component: path.productDocPage,
+		},
+		{
+			path: '/business',
+			component: path.businessPage,
+		},
+		{
+			path: '/danger',
+			component: path.dangerPage,
 		}
 	],
 })

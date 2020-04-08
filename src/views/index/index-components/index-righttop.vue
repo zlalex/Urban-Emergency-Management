@@ -27,6 +27,7 @@ const grid = {
 };
 const xColor = {
     show: true,
+	interval: 0,
     textStyle: {
         color: '#fff', //更改坐标轴文字颜色
         fontSize: 12 //更改坐标轴文字大小

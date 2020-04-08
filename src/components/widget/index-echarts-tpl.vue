@@ -44,7 +44,7 @@ export default {
                 if (index > series.data.length) {
                     index = 0;
                 }
-            }, 1000);
+            }, 1e3);
         }
     }
 };

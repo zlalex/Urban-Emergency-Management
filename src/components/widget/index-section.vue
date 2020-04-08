@@ -18,6 +18,8 @@ export default {
 </script>
 <style lang="stylus">
 .ue-index-section{
-
+	.el-timeline {
+		padding 10px 0
+	}
 }
 </style>

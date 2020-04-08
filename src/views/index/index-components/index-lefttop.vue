@@ -1,7 +1,7 @@
 <template>
     <index-section title="安全生产" class="ue-index-lefttop">
         <index-echarts-tpl
-			v-if="showDangerCompany"
+            v-if="showDangerCompany"
             title="危化品企业总量：227家"
             canvasName="dangerCompany"
             :echartsOptions="dangerCompanyOpt"
@@ -9,7 +9,7 @@
         <br />
         <div class="ue-clearfix">
             <index-echarts-tpl
-				v-if="showDangerRisk"
+                v-if="showDangerRisk"
                 class="ue-fl"
                 style="width: 50%;"
                 title="安全风险态势分析"
@@ -32,12 +32,15 @@ const grid = {
     left: '0',
     right: '0',
     bottom: '0',
-    top: '10px',
+    top: '5px',
+    height: '95%',
+    width: '100%',
     containLabel: true
 };
 
 const xColor = {
     show: true,
+    interval: 0,
     textStyle: {
         color: '#fff', //更改坐标轴文字颜色
         fontSize: 12 //更改坐标轴文字大小
@@ -84,34 +87,34 @@ const dangerRiskOpt = {
         trigger: 'item',
         formatter: '{a} <br/>{b} : {c} ({d}%)'
     },
-    legend: {
-        bottom: 10,
-        left: 'center',
-        data: [] // req data
-    },
 
     grid: {
-        left: '0',
-        right: '0',
-        bottom: '0',
-        top: '0',
+        left: '40%',
+        right: '40%',
+        bottom: '10%',
+        top: '10%',
         height: '100%',
         width: '100%'
+	},
+
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+        data: []
     },
+
     series: [
         {
             type: 'pie',
-            radius: '65%',
+            radius: '75%',
             center: ['50%', '50%'],
-            selectedMode: 'single',
-            data: [], // req data
-            emphasis: {
-                itemStyle: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+            label: {
+                normal: {
+                    position: 'inner',
+                    show: false
                 }
-            }
+            },
+			data: [], // req data
         }
     ]
 };
@@ -122,29 +125,29 @@ export default {
         return {
             dangerCompanyOpt,
             dangerRiskOpt,
-			tableData: [],
-			showDangerCompany: false,
-			showDangerRisk: false,
+            tableData: [],
+            showDangerCompany: false,
+            showDangerRisk: false
         };
     },
     methods: {
         indexDangerBusiness() {
             indexDangerBusiness().then(res => {
-				this.dangerCompanyOpt.xAxis[0].data = res.data.xAxis
-				this.dangerCompanyOpt.series[0].data = res.data.data
-				this.showDangerCompany = true
+                this.dangerCompanyOpt.xAxis[0].data = res.data.xAxis;
+                this.dangerCompanyOpt.series[0].data = res.data.data;
+                this.showDangerCompany = true;
             });
         },
         indexSafeStaus() {
             indexSafeStaus().then(res => {
 				this.dangerRiskOpt.legend.data = res.data.legend
-				this.dangerRiskOpt.series[0].data = res.data.data
-				this.showDangerRisk = true
+                this.dangerRiskOpt.series[0].data = res.data.data;
+                this.showDangerRisk = true;
             });
         },
         indexResponse() {
             indexResponse().then(res => {
-				this.tableData = res.data.data
+                this.tableData = res.data.data;
             });
         }
     },

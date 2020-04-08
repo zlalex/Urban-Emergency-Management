@@ -9,6 +9,9 @@ const errorPage = _import_('error/error')
 const emptyPage = _import_('empty/empty')
 const eventPage = _import_('event/events')
 const automobilePage = _import_('automobile/automobile')
+const productDocPage = _import_('product-doc/product-doc')
+const dangerPage = _import_('danger/danger')
+const businessPage = _import_('business/business')
 
 export default {
 	defaultPage,
@@ -17,5 +20,8 @@ export default {
 	loginPage,
 	errorPage,
 	emptyPage,
-	eventPage
+	eventPage,
+	dangerPage,
+	businessPage,
+	productDocPage
 }

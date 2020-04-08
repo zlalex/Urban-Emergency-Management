@@ -8,10 +8,10 @@
 		<br>
         <index-echarts-tpl title="重点车辆监控信息">
             <el-table :data="tableData" style="width: 100%" @row-click="handleCarClick">
-                <el-table-column prop="cartNo" label="车牌号" width="100"></el-table-column>
-                <el-table-column prop="content" label="运输品" width="80"></el-table-column>
-                <el-table-column prop="driver" label="驾驶员"></el-table-column>
-                <el-table-column prop="accompany" label="押运员"></el-table-column>
+                <el-table-column prop="cartNo" label="车牌号" width="80"></el-table-column>
+                <el-table-column prop="content" label="运输品" width="70"></el-table-column>
+                <el-table-column prop="driver" label="驾驶员" width="70"></el-table-column>
+                <el-table-column prop="accompany" label="押运员" width="70"></el-table-column>
                 <el-table-column prop="company" label="运输公司"></el-table-column>
             </el-table>
         </index-echarts-tpl>
@@ -28,6 +28,7 @@ const grid = {
 };
 const xColor = {
     show: true,
+	interval: 0,
     textStyle: {
         color: '#fff', //更改坐标轴文字颜色
         fontSize: 12 //更改坐标轴文字大小

@@ -41,8 +41,15 @@
                         <el-dropdown-item>
                             <span @click="goRoute('/')">风险监测预警系统</span>
                         </el-dropdown-item>
-                        <el-dropdown-item>企业信息管理系统</el-dropdown-item>
-                        <el-dropdown-item>危化品信息管理系统</el-dropdown-item>
+                        <el-dropdown-item>
+                            <span @click="goRoute('/business')">企业信息管理系统</span>
+						</el-dropdown-item>
+                        <el-dropdown-item>
+                            <span @click="goRoute('/danger')">危化品信息管理系统</span>
+						</el-dropdown-item>
+                        <el-dropdown-item>
+                            <span @click="goRoute('/product-doc')">生产企业档案</span>
+						</el-dropdown-item>
                         <el-dropdown-item>
                             <span @click="goRoute('/event')">危化品事故处置系统</span>
                         </el-dropdown-item>
