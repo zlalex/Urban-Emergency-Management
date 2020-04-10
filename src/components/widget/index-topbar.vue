@@ -92,7 +92,7 @@ export default {
 }
 .ue-index-topbar {
     height: 60px;
-    background: rgba(0, 102, 153, 0.4);
+    background: rgba(0, 102, 153, 0.6);
     color: #fff;
     font-size: 24px;
     font-weight: 700;

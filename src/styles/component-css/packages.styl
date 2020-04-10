@@ -36,10 +36,10 @@
 $blue = #2693ff;
 $hoverBlue = #198bfc;
 $linkColor = $blue;
-
 $indexBlue = #006699;
 $indexBlueHover = #00669999;
 $indexLinkCOlor = $indexBlue;
+
 .ue-button {
 	display: inline-block;
 	padding: 0 15px;
@@ -68,26 +68,59 @@ $indexLinkCOlor = $indexBlue;
 			background-color: $indexBlueHover;
 			border-color: $indexBlueHover;
 		}
-		&:active{
+
+		&:active {
 			background-color: #006699;
 		}
 	}
 
-	&.ue-btn-blue{
+	&.ue-btn-blue {
 		color: #ffffff;
 		background-color: $linkColor;
 		border-color: $linkColor;
+
 		&:hover {
 			background-color: $hoverBlue;
 			border-color: $hoverBlue;
 		}
-		&:active{
+
+		&:active {
 			background-color: #006699;
 		}
 	}
 
+	&.ue-btn-red {
+		color: #ffffff;
+		background-color: red;
+		border-color: red;
+	}
+
+	&.ue-btn-gray {
+		color: #ffffff;
+		background-color: gray;
+		border-color: gray;
+	}
+
+	&.ue-btn-green {
+		color: #ffffff;
+		background-color: green;
+		border-color: green;
+	}
+
 	&.ue-btn-large {
 		width: 100%;
+	}
+
+	&.ue-btn-small {
+		height: 22px !important;
+		line-height: 20px !important;
+	}
+
+	&.ue-btn-outline {
+		color: #fff;
+		padding: 0 5px;
+		border-color: rgba(119, 200, 241, 0.65);
+		background: transparent;
 	}
 }
 
