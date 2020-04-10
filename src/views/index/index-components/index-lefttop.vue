@@ -1,5 +1,5 @@
 <template>
-    <index-section title="安全生产">
+    <index-section title="安全生产" class="ue-index-layout">
         <index-echarts-tpl
             v-if="showDangerCompany"
             title="危化品企业总量：227家"
@@ -89,25 +89,33 @@ const dangerRiskOpt = {
     },
 
     grid: {
-        left: '40%',
-        right: '40%',
-        bottom: '10%',
-        top: '10%',
-        height: '100%',
-        width: '100%'
+        left: '0',
+        right: '0',
+        bottom: '0',
+        top: '5px',
+        height: '95%',
+        width: '100%',
+        containLabel: true
 	},
-
     legend: {
-        orient: 'vertical',
-        left: 'left',
-        data: []
+        bottom: 10,
+        left: 'center',
+        data: ['西凉', '益州', '兖州', '荆州', '幽州']
     },
 
     series: [
         {
             type: 'pie',
-            radius: '75%',
+            radius: '65%',
             center: ['50%', '50%'],
+			selectedMode: 'single',
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            },
             label: {
                 normal: {
                     position: 'inner',
@@ -118,6 +126,7 @@ const dangerRiskOpt = {
         }
     ]
 };
+
 import { indexDangerBusiness, indexSafeStaus, indexResponse } from '@/api';
 export default {
     name: 'ue-index-lefttop',
@@ -159,10 +168,11 @@ export default {
 };
 </script>
 <style lang="stylus">
-.ue-echarts-title {
-    font-size: 12px;
-    text-align: left;
-	font-weight: bold;
-    margin-bottom: 10px;
+.ue-index-layout{
+	.ue-echarts-title {
+		text-align: left;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
 }
 </style>

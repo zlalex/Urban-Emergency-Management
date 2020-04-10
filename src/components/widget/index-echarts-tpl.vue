@@ -1,6 +1,6 @@
 <template>
     <div class="ue-echarts-tpl">
-        <p class="ue-echarts-title" v-if="title">{{title}}</p>
+        <h2 class="ue-echarts-title ue-align-center" v-if="title">{{title}}</h2>
 		<slot name="title" v-else />
         <canvas :width="width" :height="height" v-if="canvasName" class="ue-echarts" :ref="canvasName"></canvas>
         <slot v-else />

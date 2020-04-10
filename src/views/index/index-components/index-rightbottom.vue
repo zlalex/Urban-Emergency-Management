@@ -1,5 +1,5 @@
 <template>
-    <index-section title="重点化工工艺">
+    <index-section title="重点化工工艺"  class="ue-index-layout">
         <index-echarts-tpl
             title="重点化工工艺监测数据"
             canvasName="craftDatas"

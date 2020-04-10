@@ -1,5 +1,5 @@
 <template>
-    <index-section title="道路运输">
+    <index-section title="道路运输" class="ue-index-layout">
         <index-echarts-tpl title="在途运输车总量" :echartsOptions="carCountOpt" canvasName="carCount" />
         <br />
         <index-echarts-tpl title="重点车辆监控信息">

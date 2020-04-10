@@ -1,5 +1,5 @@
 <template>
-    <index-section title="重大危险源">
+    <index-section title="重大危险源" class="ue-index-layout">
         <index-echarts-tpl
             title="重大危险源监测数据"
             canvasName="dangerDatas"
