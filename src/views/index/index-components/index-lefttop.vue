@@ -1,5 +1,5 @@
 <template>
-    <index-section title="安全生产" class="ue-index-lefttop">
+    <index-section title="安全生产">
         <index-echarts-tpl
             v-if="showDangerCompany"
             title="危化品企业总量：227家"
@@ -19,7 +19,7 @@
                 :echartsOptions="dangerRiskOpt"
             />
             <index-echarts-tpl class="ue-fl" style="width: 50%;" title="接报信息">
-                <el-table :data="tableData" style="width: 100%">
+                <el-table border stripe :data="tableData" style="width: 100%">
                     <el-table-column prop="date" label="日期" width="70"></el-table-column>
                     <el-table-column prop="address" label="地址"></el-table-column>
                 </el-table>
@@ -162,6 +162,7 @@ export default {
 .ue-echarts-title {
     font-size: 12px;
     text-align: left;
+	font-weight: bold;
     margin-bottom: 10px;
 }
 </style>

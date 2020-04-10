@@ -1,6 +1,6 @@
 <template>
 	<index-section class="ue-index-leftbottom" title="周边一公里">
-		<el-table :data="[]" style="width: 100%">
+		<el-table border stripe :data="[]" style="width: 100%">
 			<el-table-column prop="date" label="日期" width="70"></el-table-column>
 			<el-table-column prop="address" label="地址"></el-table-column>
 			<el-table-column prop="address" label="方案"></el-table-column>
@@ -52,10 +52,3 @@ export default {
 	}
 }
 </script>
-<style lang="stylus">
-.ue-index-leftbottom{
-	p{
-		text-align: left;
-	}
-}
-</style>

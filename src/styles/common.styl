@@ -30,7 +30,7 @@
 }
 
 .ue-align-center {
-	text-align: center;
+	text-align: center !important;
 }
 
 .ue-align-right {
@@ -70,7 +70,7 @@
 	}
 }
 
-.ue-rel, .ue-login, .ue-default-layout{
+.ue-rel, .ue-login, .ue-default-layout {
 	position: relative;
 }
 
@@ -89,19 +89,62 @@
 .ue-justify-dot {
 	text-align: center;
 	font-weight: bold;
-	.el-timeline-item__timestamp,
-	.el-timeline-item__content{
+
+	.el-timeline-item__timestamp, .el-timeline-item__content {
 		color: #fff;
 	}
 }
 
-.ue-index{
+.Urban-Emergency-Management {
 	.el-table {
-		th,
-		td {
+		font-size: 12px;
+		font-weight: 400;
+		background-color: transparent;
+		&::before,
+		&::after {
+			background-color: transparent;
+		}
+		.el-table__header {
+			display: none;
+		}
+
+		th, td {
 			padding: 2px 0;
+			color: #fff;
+			background-color: transparent;
+			border-bottom: 4px solid transparent;
+			border-right: 4px solid transparent;
+		}
+
+		tr {
+			background: transparent;
 		}
 	}
+
+	.el-table--enable-row-hover {
+		tr {
+			&:hover {
+				td {
+					background: transparent !important;
+				}
+			}
+		}
+	}
+
+	.el-table__row--striped {
+		td {
+			background: transparent !important;
+		}
+
+		.cell {
+			background: #00669999 !important;
+		}
+	}
+
+	.el-table--border, .el-table--group {
+		border: 4px solid transparent;
+	}
+
 	.el-table__row {
 		.cell {
 			padding: 0 4px;

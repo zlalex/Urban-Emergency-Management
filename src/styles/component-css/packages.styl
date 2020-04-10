@@ -37,6 +37,9 @@ $blue = #2693ff;
 $hoverBlue = #198bfc;
 $linkColor = $blue;
 
+$indexBlue = #006699;
+$indexBlueHover = #00669999;
+$indexLinkCOlor = $indexBlue;
 .ue-button {
 	display: inline-block;
 	padding: 0 15px;
@@ -58,9 +61,22 @@ $linkColor = $blue;
 
 	&.ue-btn-default {
 		color: #ffffff;
+		background-color: $indexLinkCOlor;
+		border-color: $indexLinkCOlor;
+
+		&:hover {
+			background-color: $indexBlueHover;
+			border-color: $indexBlueHover;
+		}
+		&:active{
+			background-color: #006699;
+		}
+	}
+
+	&.ue-btn-blue{
+		color: #ffffff;
 		background-color: $linkColor;
 		border-color: $linkColor;
-
 		&:hover {
 			background-color: $hoverBlue;
 			border-color: $hoverBlue;

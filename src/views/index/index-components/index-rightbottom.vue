@@ -1,5 +1,5 @@
 <template>
-    <index-section class="ue-index-rightbottom" title="重点化工工艺">
+    <index-section title="重点化工工艺">
         <index-echarts-tpl
             title="重点化工工艺监测数据"
             canvasName="craftDatas"
@@ -76,9 +76,3 @@ export default {
     }
 };
 </script>
-<style lang="stylus">
-.ue-index-rightbottom {
-    right: 10px;
-    bottom: 20px;
-}
-</style>

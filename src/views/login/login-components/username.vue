@@ -9,7 +9,7 @@
             <input class="ue-input" v-model="password" type="password" />
         </div>
         <div class="ue-form-item">
-            <button class="ue-button ue-btn-default ue-btn-large" @click="handleClick">登录</button>
+            <button class="ue-button ue-btn-blue ue-btn-large" @click="handleClick">登录</button>
         </div>
     </div>
 </template>

@@ -1,6 +1,7 @@
 <template>
     <div class="ue-echarts-tpl">
-        <p class="ue-echarts-title">{{title}}</p>
+        <p class="ue-echarts-title" v-if="title">{{title}}</p>
+		<slot name="title" v-else />
         <canvas :width="width" :height="height" v-if="canvasName" class="ue-echarts" :ref="canvasName"></canvas>
         <slot v-else />
     </div>
@@ -49,3 +50,11 @@ export default {
     }
 };
 </script>
+<style lang="stylus">
+.ue-echarts-tpl{
+	p{
+		font-size: 12px;
+		font-weight: 400;
+	}
+}
+</style>

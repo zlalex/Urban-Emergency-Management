@@ -1,5 +1,5 @@
 <template>
-    <index-section class="ue-index-righttop" title="重大危险源">
+    <index-section title="重大危险源">
         <index-echarts-tpl
             title="重大危险源监测数据"
             canvasName="dangerDatas"
@@ -119,9 +119,3 @@ export default {
     }
 };
 </script>
-<style lang="stylus">
-.ue-index-righttop {
-    right: 10px;
-    top: 60px;
-}
-</style>

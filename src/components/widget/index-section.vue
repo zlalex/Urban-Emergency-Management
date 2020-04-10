@@ -1,8 +1,10 @@
 <template>
     <div class="ue-index-section">
         <div class="ue-section-head">
-            <p class="ue-justify-dot">{{title || '自定义模块标题'}}</p>
+            <p class="ue-justify-dot" v-if="title">{{title}}</p>
+            <slot name="title" v-else />
         </div>
+
         <div class="ue-section-centent ue-justify-dot">
             <slot />
         </div>
@@ -18,6 +20,9 @@ export default {
 </script>
 <style lang="stylus">
 .ue-index-section{
+	.ue-justify-dot{
+		font-size: 14px;
+	}
 	.el-timeline {
 		padding 10px 0
 	}
