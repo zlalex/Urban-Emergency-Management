@@ -9,9 +9,9 @@
 
         <index-echarts-tpl title="重大危险源数字巡检">
             <div class="ue-index-imgwrap">
-                <img src="@/assets/img-u237.jpg" alt />
-                <img src="@/assets/img-u238.jpg" alt />
-                <img src="@/assets/img-u239.jpg" alt />
+                <img @click="goRoute('/product')" src="@/assets/img-u237.jpg" alt />
+                <img @click="goRoute('/product')" src="@/assets/img-u238.jpg" alt />
+                <img @click="goRoute('/product')" src="@/assets/img-u239.jpg" alt />
             </div>
         </index-echarts-tpl>
     </index-section>
@@ -116,6 +116,11 @@ export default {
         return {
             dangerDatas
         };
-    }
+	},
+	methods:{
+		goRoute(path){
+			path !== this.$route.path && this.$router.push(path)
+		}
+	}
 };
 </script>

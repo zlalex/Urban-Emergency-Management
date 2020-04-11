@@ -2,26 +2,42 @@
     <index-section title="安全生产" class="ue-index-layout">
         <index-echarts-tpl
             v-if="showDangerCompany"
-            title="危化品企业总量：227家"
+            title
             canvasName="dangerCompany"
             :echartsOptions="dangerCompanyOpt"
-        />
+        >
+            <template #title>
+                <h2 class="ue-echarts-title" @click="showCompany('company')">危化品企业总量：227家</h2>
+            </template>
+        </index-echarts-tpl>
         <br />
+
         <div class="ue-clearfix">
             <index-echarts-tpl
                 v-if="showDangerRisk"
                 class="ue-fl"
                 style="width: 50%;"
-                title="安全风险态势分析"
                 canvasName="dangerRisk"
                 width="160"
                 height="160"
                 :echartsOptions="dangerRiskOpt"
-            />
+            >
+                <template #title>
+                    <h2 class="ue-echarts-title" @click="showCompany('safe')">安全风险态势分析</h2>
+                </template>
+            </index-echarts-tpl>
+
             <index-echarts-tpl class="ue-fl" style="width: 50%;" title="接报信息">
                 <el-table border stripe :data="tableData" style="width: 100%">
                     <el-table-column prop="date" label="日期" width="70"></el-table-column>
-                    <el-table-column prop="address" label="地址"></el-table-column>
+                    <el-table-column prop="address" label="地址">
+                        <template slot-scope="scope">
+                            <span
+                                class="ue-pointer"
+                                @click="goRoute('/event')"
+                            >{{scope.row.address}}</span>
+                        </template>
+                    </el-table-column>
                 </el-table>
             </index-echarts-tpl>
         </div>
@@ -96,7 +112,7 @@ const dangerRiskOpt = {
         height: '95%',
         width: '100%',
         containLabel: true
-	},
+    },
     legend: {
         bottom: 10,
         left: 'center',
@@ -108,7 +124,7 @@ const dangerRiskOpt = {
             type: 'pie',
             radius: '65%',
             center: ['50%', '50%'],
-			selectedMode: 'single',
+            selectedMode: 'single',
             emphasis: {
                 itemStyle: {
                     shadowBlur: 10,
@@ -122,11 +138,12 @@ const dangerRiskOpt = {
                     show: false
                 }
             },
-			data: [], // req data
+            data: [] // req data
         }
     ]
 };
 
+import { mapMutations } from 'vuex';
 import { indexDangerBusiness, indexSafeStaus, indexResponse } from '@/api';
 export default {
     name: 'ue-index-lefttop',
@@ -140,6 +157,7 @@ export default {
         };
     },
     methods: {
+        ...mapMutations(['SET_INDEX_BOTTOM_TYPE']),
         indexDangerBusiness() {
             indexDangerBusiness().then(res => {
                 this.dangerCompanyOpt.xAxis[0].data = res.data.xAxis;
@@ -149,7 +167,7 @@ export default {
         },
         indexSafeStaus() {
             indexSafeStaus().then(res => {
-				this.dangerRiskOpt.legend.data = res.data.legend
+                this.dangerRiskOpt.legend.data = res.data.legend;
                 this.dangerRiskOpt.series[0].data = res.data.data;
                 this.showDangerRisk = true;
             });
@@ -158,6 +176,15 @@ export default {
             indexResponse().then(res => {
                 this.tableData = res.data.data;
             });
+        },
+
+        goRoute(path) {
+            path !== this.$route.path && this.$router.push(path);
+        },
+
+        showCompany(type) {
+            this.$BUS.$emit('SHOW_COMPANY', type);
+            this.SET_INDEX_BOTTOM_TYPE(type);
         }
     },
     mounted() {
@@ -168,11 +195,11 @@ export default {
 };
 </script>
 <style lang="stylus">
-.ue-index-layout{
-	.ue-echarts-title {
-		text-align: left;
-		font-weight: bold;
-		margin-bottom: 10px;
-	}
+.ue-index-layout {
+    .ue-echarts-title {
+        text-align: left;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
 }
 </style>

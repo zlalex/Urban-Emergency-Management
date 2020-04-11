@@ -1,10 +1,11 @@
 // store
-const UEM_STATE = {
+const store = {
 	user: {
 		info: {},
 		modules: [],
 		token: '',
 	},
+	indexBottomType: ''
 }
 
-export default UEM_STATE
+export default store

@@ -1,6 +1,10 @@
 <template>
     <index-section title="道路运输" class="ue-index-layout">
-        <index-echarts-tpl title="在途运输车总量" :echartsOptions="carCountOpt" canvasName="carCount" />
+        <index-echarts-tpl :echartsOptions="carCountOpt" canvasName="carCount">
+            <template #title>
+                <h2 class="ue-echarts-title" @click="showCompany('cart')">在途运输车总量</h2>
+            </template>
+        </index-echarts-tpl>
         <br />
         <index-echarts-tpl title="重点车辆监控信息">
             <el-table
@@ -100,7 +104,7 @@ const carCountOpt = {
         }
     ]
 };
-//
+import { mapMutations } from 'vuex';
 import { indexCarsCount } from '@/api';
 export default {
     name: 'ue-index-leftbottom',
@@ -111,14 +115,18 @@ export default {
         };
     },
     methods: {
+        ...mapMutations(['SET_INDEX_BOTTOM_TYPE']),
         handleCarClick() {
             this.$BUS.$emit('CAR_MOVE_START');
         },
         getIndexCarsCount() {
             indexCarsCount().then(res => {
-                console.log(res);
                 this.tableData = res.data.data;
             });
+        },
+        showCompany(type) {
+            this.$BUS.$emit('SHOW_COMPANY', type);
+            this.SET_INDEX_BOTTOM_TYPE(type);
         }
     },
     mounted() {

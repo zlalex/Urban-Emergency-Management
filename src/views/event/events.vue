@@ -33,8 +33,11 @@ export default {
         return {};
     },
     mounted() {
-        console.log(1);
-    }
+		this.$BUS.$emit('INIT_EVENT')
+	},
+	destroyed(){
+		this.$BUS.$off('INIT_EVENT')
+	}
 };
 </script>
 <style lang="stylus">

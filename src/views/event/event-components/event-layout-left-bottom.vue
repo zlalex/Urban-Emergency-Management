@@ -12,7 +12,11 @@
             <index-echarts-tpl title="知识档案">
                 <div class="ue-flex" style="padding: 0 10px;">
                     <p class="font-bold">图谱分析</p>
-                    <p class="ue-button ue-btn-small ue-btn-outline">历史事件</p>
+                    <a
+                        class="ue-button ue-btn-small ue-btn-outline ue-link"
+                        href="http://whp-home.discovery.tianrang.com/relational_canvas/WHPSG0002"
+                        target="_blank"
+                    >历史事件</a>
                 </div>
                 <el-table border stripe :data="mapData" style="width: 100%">
                     <el-table-column prop="date" label="日期" width="80"></el-table-column>
@@ -26,7 +30,7 @@
             <index-echarts-tpl title="天然气(甲烷)安全技术知识">
                 <div class="ue-flex">
                     <p class="font-bold">消防措施:</p>
-                    <p class="ue-button ue-btn-small ue-btn-outline">详细信息</p>
+                    <p class="ue-button ue-btn-small ue-btn-outline" @click="goRoute('/danger')">详细信息</p>
                 </div>
                 <p>
                     <span class="font-gold">灭火剂：</span>
@@ -40,7 +44,7 @@
                     <span class="font-gold">防护措施：</span>
                     <span>消防人员必须佩戴空 呼吸器、穿全身防火防毒服,在上风向灭火。尽可能将容器从火场移至空旷处。喷水保持火场容器...</span>
                 </p>
-				<br>
+                <br />
                 <p class="font-bold">泄漏应急处置措施：</p>
                 <p>消除所有点火源。根据气体扩散的影响区域划定警戒区,无关人员从侧风、上风向撤离至安全区。建议应急处理人员戴正压自给式呼...</p>
             </index-echarts-tpl>
@@ -57,9 +61,9 @@
             <index-echarts-tpl title="运输车辆:沪A23212">
                 <div class="ue-flex">
                     <p class="font-bold">运输车辆：沪BG4517</p>
-                    <p class="ue-button ue-btn-small ue-btn-outline">详细信息</p>
+                    <p class="ue-button ue-btn-small ue-btn-outline" @click="goRoute('/automobile')">详细信息</p>
                 </div>
-                <p>
+                <p @click="goRoute('/business')">
                     <span class="font-gold">所属单位：</span>上海中海物流公司
                 </p>
                 <p>
@@ -120,14 +124,23 @@ export default {
                 address: '上海市浦东新区虹梅路发生交通意外事故'
             },
             {
-                date: '2019/08/16',
-                address: '上海市浦东新区虹梅路发生交通意外事故.....'
-            },
-            {
                 date: '2019/03/08',
                 address: '上海市浦东新区虹梅路发生交通意外事故.....'
             }
         ]
-    })
+	}),
+	methods:{
+        goRoute(path) {
+            path !== this.$route.path && this.$router.push(path);
+        },
+	}
 };
 </script>
+
+<style lang="stylus">
+.event-left-section{
+	.ue-link{
+		font-size: 12px;
+	}
+}
+</style>

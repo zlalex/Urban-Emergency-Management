@@ -44,6 +44,10 @@ const VueRouter = new Router({
 		{
 			path: '/danger',
 			component: path.dangerPage,
+		},
+		{
+			path: '/automobile',
+			component: path.automobilePage,
 		}
 	],
 })

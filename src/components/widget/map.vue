@@ -4,11 +4,59 @@
     </div>
 </template>
 <script>
+import { mapState } from 'vuex';
 export default {
     name: 'ue-map',
     data() {
         return {
-            map: null
+            map: null,
+            titleData: {
+                company: {
+                    data: {
+                        width: 200,
+                        height: 100,
+                        title: '上海华谊精细化工有限公司'
+                    },
+                    address: `
+						法人：张五州
+						员工：200人
+						许可范围：
+						乙酸乙酯,乙酸,邻苯二
+					`
+                },
+                safe: {
+                    data: {
+                        width: 200,
+                        height: 100,
+                        title: '上海凯越化工有限公司'
+                    },
+                    address: `
+						法人：刘文斌
+						员工：340人
+						许可范围：
+						含易燃溶剂的合成
+						树脂、油漆、辅助
+						材料、涂料等制品
+					`
+                },
+                cart: {
+                    data: {
+                        width: 200,
+                        height: 100,
+                        title: '上海中海物流公司 沪BG4517'
+                    },
+                    address: `
+						驾驶人：王明玉
+						13867539850
+						押运人：李保国
+						13987603854
+						货物类型：
+						易燃
+						货物名称：
+						液化天然气
+					`
+                }
+            }
         };
     },
 
@@ -45,7 +93,8 @@ export default {
         },
         endY() {
             return this.end.y;
-        }
+        },
+        ...mapState(['indexBottomType'])
     },
 
     methods: {
@@ -58,36 +107,70 @@ export default {
             // 定位中心
             map.centerAndZoom(new BMap.Point(shanghaiY, shanghaiX), 12);
             map.setMapStyle({ style: 'dark' });
-            this.renderBusiness();
+            // this.renderBusiness();
         },
 
         renderBusiness() {
             const BMap = this.BMap;
-            const map = this.map;
-
-            // 编写自定义函数,创建标注
-            function addMarker(point) {
-                const marker = new BMap.Marker(point);
-                map.addOverlay(marker);
-            }
-
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 6; i++) {
                 const x = 121.43 + Math.random() / 10;
                 const y = 31.18 + Math.random() / 10;
                 const point = new BMap.Point(x, y);
-
-                addMarker(point);
+                this.addMarker(point, i === 2, i);
             }
+        },
+
+        renderCircle() {
+            const BMap = this.BMap;
+			const map = this.map;
+
+			const point = new BMap.Point(121.43, 31.18);
+            const marker = new BMap.Marker(point); // 创建标注
+            map.addOverlay(marker);
+            marker.enableDragging(); //marker可拖拽
+
+            const circle = new BMap.Circle(point, 3000, {
+                fillColor: '#548ab9',
+                strokeWeight: 1,
+                fillOpacity: 0.3,
+                strokeOpacity: 0.3
+            }); //设置覆盖物的参数，中心坐标，半径，颜色
+            map.addOverlay(circle); //在地图上显示圆形覆盖物
+        },
+
+        addMarker(point, sign) {
+            const BMap = this.BMap;
+            const map = this.map;
+            // 编写自定义函数,创建标注
+            // 动态数据
+            let icon = null;
+            if (this.indexBottomType === 'cart') {
+                icon = new BMap.Icon('/img/img-car.png', new BMap.Size(40, 40));
+            }
+
+            const marker = icon
+                ? new BMap.Marker(point, { icon })
+                : new BMap.Marker(point);
+
+            const opts = this.titleData[this.indexBottomType];
+            const infoWindow = new BMap.InfoWindow(opts.address, opts.data);
+
+            map.addOverlay(marker);
+            !icon && sign && marker.setAnimation(2);
+            marker.addEventListener('click', function() {
+                map.openInfoWindow(infoWindow, point);
+            });
         },
 
         carMovePath() {
             const BMap = this.BMap;
             const map = this.map;
 
-            const xuhuiX = this.startX || 31.22352;
-            const xuhuiY = this.StartY || 121.45591;
-            const jinganX = this.endX || 31.18826;
-            const jinganY = this.endY || 121.43687;
+            this.map.clearOverlays();
+            const xuhuiX = this.startX || 31.22352 + Math.random() / 100;
+            const xuhuiY = this.StartY || 121.45591 + Math.random() / 100;
+            const jinganX = this.endX || 31.18826 + Math.random() / 100;
+            const jinganY = this.endY || 121.43687 + Math.random() / 100;
 
             const myP1 = new BMap.Point(xuhuiY, xuhuiX); //起点
             const myP2 = new BMap.Point(jinganY, jinganX); //终点
@@ -137,7 +220,7 @@ export default {
 
             setTimeout(function() {
                 run();
-            }, 1500);
+            }, 1e3);
         }
     },
 
@@ -148,11 +231,21 @@ export default {
         this.map = map;
         // 鼠标滚动缩放
         this.map.enableScrollWheelZoom(true);
+        this.renderMap();
+        // 地图交互
+        this.$BUS.$on('CAR_MOVE_START', () => {
+            this.carMovePath();
+        });
 
-		this.renderMap();
-		this.$BUS.$on('CAR_MOVE_START', ()=>{
-			this.carMovePath()
-		})
+        this.$BUS.$on('CHANGE_MAP_POINT', () => {
+            this.map.clearOverlays();
+            this.renderBusiness();
+        });
+
+        this.$BUS.$on('INIT_EVENT', () => {
+			debugger
+			this.renderCircle();
+        });
     }
 };
 </script>

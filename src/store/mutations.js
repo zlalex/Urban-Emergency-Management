@@ -16,5 +16,8 @@ export default {
 		const { user } = data
 		state.user = user
 		setSessionStorage(state)
+	},
+	[types.SET_INDEX_BOTTOM_TYPE](state, val) {
+		state.indexBottomType = val
 	}
 }
