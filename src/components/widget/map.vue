@@ -243,7 +243,6 @@ export default {
         });
 
         this.$BUS.$on('INIT_EVENT', () => {
-			debugger
 			this.renderCircle();
         });
     }

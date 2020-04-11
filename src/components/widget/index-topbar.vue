@@ -1,9 +1,6 @@
 <template>
     <div class="ue-index-topbar ue-clearfix">
-        <div class="ue-topbar-left ue-fl">
-            <p>上海: 多云 14℃ 风向：西北 风力：2级 风速：2.5M/S</p>
-        </div>
-
+		<slot name="topbar-left"/>
         <div class="ue-topbar-right ue-fr">
             <div class="ue-fl">
                 <el-dropdown style="width: 60px;height: 60px;">
@@ -54,8 +51,7 @@
                 </el-dropdown>
             </div>
         </div>
-
-        <p class="ue-align-center ue-index-title">城市危化品全生命周期智能监控处置系统</p>
+		<slot name="topbar-title"/>
     </div>
 </template>
 <script>
