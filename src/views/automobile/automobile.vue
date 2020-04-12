@@ -1,6 +1,6 @@
 <template>
     <div class="ue-automobile">
-        <doc-topbar class="ue-automobile-topbar" title="车辆档案页"/>
+        <doc-topbar class="ue-automobile-topbar" title="车辆档案"/>
 		<automobile-content/>
     </div>
 </template>

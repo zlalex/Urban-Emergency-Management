@@ -58,11 +58,6 @@ export default {
 <style lang="stylus">
 .ue-default-layout {
     .ue-flex {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 2px;
-
         .ue-button {
             padding: 0 5px;
             height: 28px;
