@@ -10,10 +10,22 @@
         </div>
 
         <div class="ue-abs ue-event-bottom">
-            <el-steps :space="200" :active="1" finish-status="success">
-                <el-step title="已完成"></el-step>
-                <el-step title="进行中"></el-step>
-                <el-step title="步骤 3"></el-step>
+            <el-steps :space="200" :active="3" finish-status="success">
+                <el-step>
+					<template #title>
+						<p class="ue-pointer" @click="showEventHandle(false)">事件接报</p>
+					</template>
+				</el-step>
+                <el-step title="先期处置">
+					<template #title>
+						<p class="ue-pointer" @click="showEventHandle(false)">先期处置</p>
+					</template>
+				</el-step >
+                <el-step title="事件处理">
+					<template #title>
+						<p class="ue-pointer" @click="showEventHandle(true)">事件处理</p>
+					</template>
+				</el-step>
             </el-steps>
         </div>
     </div>
@@ -31,7 +43,12 @@ export default {
     },
     data() {
         return {};
-    },
+	},
+	methods:{
+		showEventHandle(sign){
+			this.$BUS.$emit('SHOW_EVENT_HANDLE', sign)
+		}
+	},
     mounted() {
 		this.$BUS.$emit('INIT_EVENT')
 	},

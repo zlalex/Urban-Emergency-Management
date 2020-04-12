@@ -157,6 +157,7 @@ export default {
 		}
 	}
 }
+
 .doc-content-title {
 	padding 10px
 	font-weight bold

@@ -1,12 +1,14 @@
 <template>
     <index-section class="event-left-section">
-        <el-timeline :reverse="reverse" v-if="false">
-            <el-timeline-item
-                v-for="(activity, index) in activities"
-                :key="index"
-                :timestamp="activity.timestamp"
-            >{{activity.content}}</el-timeline-item>
-        </el-timeline>
+		<index-echarts-tpl title="初期事故处置任务"  v-if="showHandleStep">
+			<el-timeline :reverse="reverse" style="text-align: left;">
+				<el-timeline-item
+					v-for="(activity, index) in activities"
+					:key="index"
+					:timestamp="activity.timestamp"
+				>{{activity.content}}</el-timeline-item>
+			</el-timeline>
+		</index-echarts-tpl>
 
         <template v-else>
             <index-echarts-tpl title="知识档案">
@@ -63,7 +65,7 @@
                     <p class="font-bold">运输车辆：沪BG4517</p>
                     <p class="ue-button ue-btn-small ue-btn-outline" @click="goRoute('/automobile')">详细信息</p>
                 </div>
-                <p @click="goRoute('/business')">
+                <p class="ue-pointer" @click="goRoute('/business')">
                     <span class="font-gold">所属单位：</span>上海中海物流公司
                 </p>
                 <p>
@@ -102,15 +104,27 @@ export default {
         ],
         activities: [
             {
-                content: '活动按期开始',
+                content: '司机、押运员未受伤，已自行根据《道路运输安全卡》进行初期事故处置。',
                 timestamp: '2018-04-15'
             },
             {
-                content: '通过审核',
+                content: '在事故发生地点周边放置隔离桩、“危险化学品”警示标志。',
                 timestamp: '2018-04-13'
             },
             {
-                content: '创建成功',
+                content: '通过电话拨打110，将事故详细情况上报。',
+                timestamp: '2018-04-11'
+            },
+            {
+                content: '司机、押运员穿戴个人防护服、佩戴安全帽、穿戴反光背心。',
+                timestamp: '2018-04-11'
+            },
+            {
+                content: '使用便携式防漏围堰设立“临时围堰”。',
+                timestamp: '2018-04-11'
+            },
+            {
+                content: '使用堵漏垫对周边下水道进行封堵。',
                 timestamp: '2018-04-11'
             }
         ],
@@ -127,8 +141,14 @@ export default {
                 date: '2019/03/08',
                 address: '上海市浦东新区虹梅路发生交通意外事故.....'
             }
-        ]
+		],
+		showHandleStep: false
 	}),
+	mounted(){
+		this.$BUS.$on('SHOW_EVENT_HANDLE', (val)=>{
+			this.showHandleStep = val
+		})
+	},
 	methods:{
         goRoute(path) {
             path !== this.$route.path && this.$router.push(path);

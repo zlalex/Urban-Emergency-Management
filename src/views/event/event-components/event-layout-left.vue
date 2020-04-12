@@ -65,19 +65,6 @@ export default {
         }
     }
 
-    .font-red {
-        font-size: 16px;
-        color: red;
-    }
-
-    .font-gold {
-        color: gold;
-    }
-
-    .font-bold {
-        font-weight: bold;
-    }
-
     .ue-echarts-title {
         font-size: 14px;
     }
