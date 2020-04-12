@@ -11,12 +11,9 @@
             <el-table-column prop="current" label="值班"></el-table-column>
         </el-table>
 
-        <div style="width: 100%; height: 300px; line-height: 300px; border: 1px solid #069;">
-			环境监控图
-		</div>
 		<br>
-        <div style="text-align: left; font-size: 12px;">
-            <p class="ue-align-center">环境影响预测</p>
+
+		<index-echarts-tpl title="环境影响预测">
             <div class="ue-flex">
                 <p>大气环境影响：较大</p>
                 <p>水环境影响：较小</p>
@@ -25,9 +22,20 @@
                 <p>土壤环境影响：较小</p>
                 <p>噪声环境影响：较小</p>
             </div>
-        </div>
+			<div style="width: 100%; height: 200px; line-height: 300px; border: 1px solid #069;">
+				环境监控图
+			</div>
+		</index-echarts-tpl>
+
 		<br>
-        <index-echarts-tpl title="应急资源" style="text-align: left; font-size: 12px; ">
+
+		<index-echarts-tpl v-if="showHandleStep" title="现场视频">
+			<div>
+				<video src=""></video>
+			</div>
+		</index-echarts-tpl>
+
+        <index-echarts-tpl v-else title="应急资源" style="text-align: left; font-size: 12px; ">
             <p class="font-bold font-gold">一、防护用品</p>
             <p>1、消防（防火服、头盔、手套、面具、消防靴、绝缘地毯、橡胶雨衣、胶鞋、防毒口罩、全面具、滤毒盒等）40套。</p>
             <p>2、通用（安全帽（盔）、安全鞋、水靴、呼吸面具等）10套。</p>
@@ -42,6 +50,7 @@
 export default {
     data() {
         return {
+			showHandleStep: false,
             positionData: [
                 {
                     type: '派出所',
@@ -80,6 +89,11 @@ export default {
                 }
             ]
         };
-    }
+	},
+	mounted(){
+		this.$BUS.$on('SHOW_EVENT_HANDLE', (val)=>{
+			this.showHandleStep = val
+		})
+	}
 };
 </script>

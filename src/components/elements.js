@@ -10,7 +10,8 @@ import {
 	Dropdown,
 	DropdownItem,
 	DropdownMenu,
-	Avatar
+	Avatar,
+	Dialog
 } from 'element-ui'
 
 const compontents = [
@@ -25,7 +26,8 @@ const compontents = [
 	Dropdown,
 	DropdownMenu,
 	DropdownItem,
-	Avatar
+	Avatar,
+	Dialog
 ]
 
 const install = Vue => {

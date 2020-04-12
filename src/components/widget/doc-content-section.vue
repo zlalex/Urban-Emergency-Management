@@ -2,6 +2,7 @@
     <div class="doc-content-section">
         <slot name="doc-left" />
         <slot name="doc-right" />
+		<slot/>
     </div>
 </template>
 <script>
