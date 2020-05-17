@@ -5,6 +5,7 @@
             title
             canvasName="dangerCompany"
             :echartsOptions="dangerCompanyOpt"
+			width="400px"
         >
             <template #title>
                 <h2 class="ue-echarts-title" @click="showCompany('company')">危化品企业总量：227家</h2>
@@ -116,7 +117,7 @@ const dangerRiskOpt = {
     legend: {
         bottom: 10,
         left: 'center',
-        data: ['西凉', '益州', '兖州', '荆州', '幽州']
+        data: [' 一级', '二级', '三级', '四级']
     },
 
     series: [

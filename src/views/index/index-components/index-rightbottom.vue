@@ -1,13 +1,15 @@
 <template>
-    <index-section title="重点化工工艺"  class="ue-index-layout">
+    <index-section title="重点化工工艺" class="ue-index-layout">
         <index-echarts-tpl
             title="重点化工工艺监测数据"
             canvasName="craftDatas"
             :echartsOptions="craftDatasOpt"
+			width="400"
         />
-		<br>
+        <br />
 
-        <index-echarts-tpl title="重点化工工艺监测视频">
+        <index-echarts-tpl title="重点化工工艺监测视频"
+			width="400">
             <div class="ue-index-imgwrap">
                 <img src="@/assets/img-u240.jpg" alt />
                 <img src="@/assets/img-u240.jpg" alt />
@@ -17,7 +19,16 @@
     </index-section>
 </template>
 <script>
-const week = ['松江区', '青浦区', '奉贤区', '杨浦区', '闵行区', '宝山区', '嘉定区'];
+const xData = [
+    // '光气及光气化工艺',
+    '氟化工艺',
+    '磺化工艺',
+    // '电解工艺（氯碱）',
+    '加氢工艺',
+    '聚合工艺',
+    '氯化工艺',
+    '重氮化工艺'
+];
 const grid = {
     left: '0',
     right: '0',
@@ -27,7 +38,7 @@ const grid = {
 };
 const xColor = {
     show: true,
-	interval: 0,
+    interval: 0,
     textStyle: {
         color: '#fff', //更改坐标轴文字颜色
         fontSize: 12 //更改坐标轴文字大小
@@ -45,7 +56,7 @@ const craftDatasOpt = {
     xAxis: [
         {
             type: 'category',
-            data: week,
+            data: xData,
             axisTick: {
                 alignWithLabel: true
             },
@@ -60,10 +71,9 @@ const craftDatasOpt = {
     ],
     series: [
         {
-            name: '直接访问',
             type: 'bar',
             barWidth: '60%',
-            data: [10, 52, 200, 334, 390, 330, 220]
+            data: [ 15, 28, 34, 15, 16, 43]
         }
     ]
 };

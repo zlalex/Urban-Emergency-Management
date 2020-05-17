@@ -23,9 +23,13 @@ export default {
         };
     },
     methods: {
-		// 需要完善登录框表单校验
+        // 需要完善登录框表单校验
         handleClick() {
-            this.password && this.username && this.$emit('submit');
+            if (this.password && this.username) {
+                this.password === 'admin123' &&
+                    this.username === 'admin' &&
+                    this.$emit('submit');
+            }
         }
     }
 };

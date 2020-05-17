@@ -126,8 +126,8 @@ export default {
     z-index: 2;
     bottom: 20px;
     padding: 10px;
-    margin: 0 420px;
-    width: calc(100% - 850px);
+    margin: 0 520px;
+    width: calc(100% - 1050px);
     background: rgba(0, 102, 153, 0.6);
     border: 1px solid #069;
 }

@@ -40,4 +40,12 @@ export default {
 }
 </script>
 <style lang="stylus">
+.ue-layout-left,
+.ue-layout-right{
+	display flex
+	flex-direction column
+	.ue-index-section{
+		flex 1
+	}
+}
 </style>

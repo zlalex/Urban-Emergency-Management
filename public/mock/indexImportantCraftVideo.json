@@ -2,15 +2,15 @@
 	"code": 1,
 	"data": {
 		"user": {
-			"username": "周亮",
-			"userid": "1006"
+			"username": "admin",
+			"userid": "000001"
 		},
 		"modules": [
 			"index",
 			"danger",
 			"login"
 		],
-		"token": "abcd"
+		"token": "jsonwebtoken"
 	},
 	"message": "ok"
 }
