@@ -4,7 +4,7 @@
       <b>404</b>
     </p>
     <p class="util-align-center">
-      <b class="util-cursor-pointer" @click="$goRoute('/')">返回首页</b>
+      <b class="util-cursor-pointer" @click="$GoRoute('/')">返回首页</b>
     </p>
   </div>
 </template>

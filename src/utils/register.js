@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import goRoute from './goRoute'
+import goRoute from '@/utils/goRoute'
 
-Vue.prototype.$goRoute = goRoute
+Vue.prototype.$GoRoute = goRoute
 Vue.prototype.$EventBus = new Vue()

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import path from './path'
+import path from '@/router/path'
 import getToken from '@/utils/getToken'
 
 let token = ''

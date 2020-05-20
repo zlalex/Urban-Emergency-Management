@@ -11,4 +11,4 @@ require('echarts/lib/component/title')
 require('echarts/lib/chart/bar');
 require('echarts/lib/chart/graph');
 
-Vue.prototype.$echarts = echarts
+Vue.prototype.$Echarts = echarts

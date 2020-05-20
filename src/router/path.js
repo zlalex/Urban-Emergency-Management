@@ -1,4 +1,4 @@
-const _import_ = require('./_import_' + process.env.NODE_ENV + '.js')
+const _import_ = require('@/router/_import_' + process.env.NODE_ENV + '.js')
 const datum = _import_('datum')
 const event = _import_('event')
 const index = _import_('index')

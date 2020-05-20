@@ -3,7 +3,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+	name: 'login-pki'
+}
 </script>
 
 <style lang="scss">

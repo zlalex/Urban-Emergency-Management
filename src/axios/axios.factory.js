@@ -1,5 +1,5 @@
 import axios from 'axios'
-import config from './axios.config'
+import config from '@/axios/axios.config'
 import getToken from '@/utils/getToken'
 
 let token = ''

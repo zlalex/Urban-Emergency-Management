@@ -3,7 +3,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "login-qrcode"
+};
 </script>
 
 <style lang="scss">

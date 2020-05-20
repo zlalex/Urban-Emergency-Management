@@ -1,4 +1,4 @@
-import dataType from './dataType'
+import dataType from '@/utils/dataType'
 
 export default function (params) {
   dataType.notBasic(params) ? this.$router.push({

@@ -1,16 +1,17 @@
 <template>
-  <div class="package-radio-button">
+  <div class="radio-button">
     <span
       v-for="(el, i) in data"
       :key="i"
       @click="handleChange(el)"
-      class="package-radio-button__item"
+      class="radio-button-item"
       :class="{
         active: value === el.value
       }"
     >{{el.name}}</span>
   </div>
 </template>
+
 <script>
 export default {
   name: "radio-button",
@@ -28,3 +29,14 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.radio-button{
+	display: flex;
+	.radio-button-item{
+		flex: 1;
+		text-align: center;
+		line-height: 24px;
+	}
+}
+</style>

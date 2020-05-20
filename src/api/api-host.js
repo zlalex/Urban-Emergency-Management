@@ -1,4 +1,5 @@
-const env = process.env.VUE_APP_ENV
+import env from './api-env'
+
 const host = {
   mock: '/',
   dev: '/',

@@ -1,9 +1,21 @@
 <template>
-  <div class="login-username"></div>
+  <login-form class="login-username" @submit="submitAsync" />
 </template>
 
 <script>
-export default {};
+import LoginForm from "@/components/forms/login-form";
+
+export default {
+  name: "login-username",
+  components: {
+    LoginForm
+  },
+  methods: {
+    submitAsync() {
+      this.$GoRoute("/");
+    }
+  }
+};
 </script>
 
 <style lang="scss">

@@ -1,4 +1,5 @@
-const env = process.env.VUE_APP_ENV
+import env from './api-env'
+
 const prefix = {
   mock: './mock/',
   dev: 'api/',
