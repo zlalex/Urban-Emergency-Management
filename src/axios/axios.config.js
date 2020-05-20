@@ -1,12 +1,12 @@
-import host from '@/api/api.host'
-import {
-	CONTENT_TYPE
-} from '@/config'
+import host from '@/api/api-host'
 
 const config = {
-	baseURL: host,
-	headers: {
-		post: CONTENT_TYPE,
-	},
+  baseURL: host,
+  headers: {
+    post: {
+      'Content-Type': 'application/json;charset=utf-8',
+    }
+  },
 }
+
 export default config

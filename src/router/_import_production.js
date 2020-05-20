@@ -1,2 +1,3 @@
-// module.exports = file => () => import('@/views/'+ file +'.vue')
-module.exports = file => resolve => require(['@/views/' + file + '.vue'], resolve)
+// module.exports = file => () => import('@/pages/' + file + '.vue')
+// module.exports = file => () => import(/* webpackChunkName: "pageName" */'@/pages/' + file + '.vue')
+module.exports = file => resolve => require(['@/pages/' + file + '.vue'], resolve)

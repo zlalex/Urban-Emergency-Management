@@ -1,11 +1,5 @@
-// store
-const store = {
-	user: {
-		info: {},
-		modules: [],
-		token: '',
-	},
-	indexBottomType: ''
+export default {
+  user: {
+    token: ''
+  }
 }
-
-export default store

@@ -1,61 +1,84 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import path from './components.path'
+import path from './path'
+import getToken from '@/utils/getToken'
 
-Vue.use(Router)
-const routerMenus = [
+let token = ''
+const {
+	event,
+	index,
+	login,
+	datum,
+	empty,
+	datumAutomobile,
+	datumCompany,
+	datumCargo
+} = path
+const routes = [
 	{
 		path: '/',
-		component: path.indexPage
+		component: index,
+	},
+	{
+		path: '/login',
+		component: login,
 	},
 	{
 		path: '/event',
-		component: path.eventPage
-	}
+		component: event
+	},
+	{
+		path: '/404',
+		component: empty
+	},
+	{
+		path: '/datum',
+		component: datum,
+		children: [
+			{
+				path: 'automobile',
+				component: datumAutomobile
+			},
+			{
+				path: 'company',
+				component: datumCompany
+			},
+			{
+				path: 'cargo',
+				component: datumCargo
+			},
+		]
+	},
 ]
+const paths = routes.reduce((total, route) => {
+	if (route.path === '/404') {
+		return total
+	}
+	if (route.children && route.children.length) {
+		route.children.reduce((innerTotal, childRoute) => {
+			innerTotal.push(`${route.path}/${childRoute.path}`)
+			return innerTotal
+		}, total)
+		return total
+	} else {
+		total.push(route.path)
+		return total
+	}
+}, [])
 
-const VueRouter = new Router({
-	routes: [
-		{
-			path: '/',
-			component: path.defaultPage,
-			children: routerMenus
-		},
-		{
-			path: '/login',
-			component: path.loginPage,
-		},
-		{
-			path: '/error',
-			component: path.errorPage,
-		},
-		{
-			path: '/empty',
-			component: path.emptyPage,
-		},
-		{
-			path: '/product',
-			component: path.productDocPage,
-		},
-		{
-			path: '/business',
-			component: path.businessPage,
-		},
-		{
-			path: '/danger',
-			component: path.dangerPage,
-		},
-		{
-			path: '/automobile',
-			component: path.automobilePage,
-		}
-	],
+Vue.use(Router)
+
+const VueRouter = new Router({ routes })
+
+VueRouter.beforeEach((to, from, next) => {
+	if (to.path === '/404' || (to.path === '/login' && !token)) {
+		next()
+		return
+	}
+	if (!token) {
+		token = getToken()
+	}
+	token ? paths.includes(to.path) ? next() : next('/404') : next('/login')
 })
-
-// 权限与路由拦截[tips]一个低级错误，设置路由拦截后，没有执行next()导致页面无法跳转。
-// VueRouter.beforeEach((to, from, next) => {
-// 	console.log({ to: to.path, from: from.path })
-// 	next()
-// })
 
 export default VueRouter
