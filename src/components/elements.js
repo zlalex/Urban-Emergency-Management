@@ -1,34 +1,34 @@
 import {
-	Form,
-	FormItem,
-	Input,
-	Button,
-	Message,
-	MessageBox
+  Form,
+  FormItem,
+  Input,
+  Button,
+  Message,
+  MessageBox
 } from 'element-ui'
 
 const components = [
-	Form,
-	FormItem,
-	Input,
-	Button,
-	Message,
-	MessageBox
+  Form,
+  FormItem,
+  Input,
+  Button,
+  Message,
+  MessageBox
 ]
 
 
 const install = Vue => {
-	if (install.installed) {
-		return
-	}
+  if (install.installed) {
+    return
+  }
 
-	components.map(element => Vue.component(element.name, element))
+  components.map(element => Vue.component(element.name, element))
 }
 
 typeof window !== 'undefined' && window.Vue && install(window.Vue)
 
 export default {
-	install,
-	Message,
-	MessageBox,
+  install,
+  Message,
+  MessageBox,
 }

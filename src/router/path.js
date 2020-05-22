@@ -9,12 +9,12 @@ const datumCompany = _import_('datum-company')
 const datumCargo = _import_('datum-cargo')
 
 export default {
-	event,
-	index,
-	login,
-	datum,
-	empty,
-	datumAutomobile,
-	datumCompany,
-	datumCargo
+  event,
+  index,
+  login,
+  datum,
+  empty,
+  datumAutomobile,
+  datumCompany,
+  datumCargo
 }
