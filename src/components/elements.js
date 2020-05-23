@@ -4,7 +4,10 @@ import {
   Input,
   Button,
   Message,
-  MessageBox
+  MessageBox,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem
 } from 'element-ui'
 
 const components = [
@@ -13,7 +16,10 @@ const components = [
   Input,
   Button,
   Message,
-  MessageBox
+  MessageBox,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem
 ]
 
 

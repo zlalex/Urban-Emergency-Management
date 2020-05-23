@@ -1,41 +1,47 @@
-.util-{
-  &#{flex}{
+.util- {
+  &#{flex} {
     display: flex;
   }
-  &#{center}{
+  &#{center} {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  &#{space-between}{
+  &#{space-between} {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  &#{align-center}{
+  &#{align-center} {
     text-align: center;
   }
-  &#{cursor-pointer}{
+  &#{cursor-pointer} {
     cursor: pointer;
   }
-  &#{float-left}{
+  &#{float-left} {
     float: left;
   }
-  &#{float-right}{
+  &#{float-right} {
     float: right;
   }
-  &#{clearfix}{
-    &::after{
-      content: '';
+  &#{clearfix} {
+    &::after {
+      content: "";
       display: block;
       clear: both;
     }
   }
-  &#{cursor-pointer}{
+  &#{cursor-pointer} {
     cursor: pointer;
   }
-  &#{cursor-pointer-underline}{
+  &#{cursor-pointer-underline} {
     cursor: pointer;
     text-decoration: underline;
+  }
+  &#{color-white} {
+    color: white;
+  }
+  &#{color-link}{
+    color: #2693ff;
   }
 }

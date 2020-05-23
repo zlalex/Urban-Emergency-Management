@@ -1,12 +1,13 @@
 <template>
-  <div class="page-index">
+  <div class="component-layout">
 
   </div>
 </template>
-
 <script>
-export default {};
-</script>
+export default {
 
+}
+</script>
 <style lang="scss">
+
 </style>
