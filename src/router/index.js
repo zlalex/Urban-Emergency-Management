@@ -78,7 +78,15 @@ VueRouter.beforeEach((to, from, next) => {
   if (!token) {
     token = getToken()
   }
-  token ? paths.includes(to.path) ? next() : next('/404') : next('/login')
+
+  if (token && paths.includes(to.path) && (to.path === '/login' || to.path === '/register')) {
+    next(from.path)
+    return
+  }
+
+  token ?
+    paths.includes(to.path) ? next() : next('/404')
+    : next('/login')
 })
 
 export default VueRouter

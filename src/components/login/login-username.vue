@@ -4,6 +4,7 @@
 
 <script>
 import LoginForm from "@/components/forms/login-form";
+import setToken from "@/utils/setToken";
 
 export default {
   name: "login-username",
@@ -11,7 +12,9 @@ export default {
     LoginForm
   },
   methods: {
-    submitAsync() {
+    submitAsync(data) {
+      console.log(data, "loginData");
+      setToken();
       this.$GoRoute("/");
     }
   }
