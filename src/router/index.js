@@ -5,14 +5,16 @@ import getToken from '@/utils/getToken'
 
 let token = ''
 const {
-  event,
+  dispose,
   index,
   login,
-  datum,
+  register,
+  library,
   empty,
-  datumAutomobile,
-  datumCompany,
-  datumCargo
+  libraryChemical,
+  libraryCompany,
+  libraryFactory,
+  libraryVehicle
 } = path
 const routes = [
   {
@@ -24,28 +26,36 @@ const routes = [
     component: login,
   },
   {
-    path: '/event',
-    component: event
+    path: '/register',
+    component: register
+  },
+  {
+    path: '/dispose',
+    component: dispose
   },
   {
     path: '/404',
     component: empty
   },
   {
-    path: '/datum',
-    component: datum,
+    path: '/library',
+    component: library,
     children: [
       {
-        path: 'automobile',
-        component: datumAutomobile
+        path: 'chemical',
+        component: libraryChemical
       },
       {
         path: 'company',
-        component: datumCompany
+        component: libraryCompany
       },
       {
-        path: 'cargo',
-        component: datumCargo
+        path: 'factory',
+        component: libraryFactory
+      },
+      {
+        path: 'vehicle',
+        component: libraryVehicle
       },
     ]
   },

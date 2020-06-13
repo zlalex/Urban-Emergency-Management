@@ -1,0 +1,1 @@
+export default 'P_TOKEN'

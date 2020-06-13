@@ -52,3 +52,39 @@ requestMethod是对axios或fetch的封装处理，返回get、post或更多的�
 request.config.js 处理封装的参数，默认的host、请求头等配置。
 
 request.factory.js 对request前后拦截、cancel处理，并且处理不同的code码。
+
+#### 模块
+1. 首页 index
+  危化品企业 factory
+  安全风险 safe
+  接报信息 accident
+  运输车 vehicle
+  车辆监控 vehicle monitor
+  危险源监控 source monitor
+  巡检 source tour
+  化工品监测 chemical monitor
+  视频监测 chemical video
+
+2. 登录页 login
+  二维码 qrcode
+  秘钥 pki
+  用户名 username
+
+3. 处置页 dispose
+  事件信息 accident
+  现场信息 scene
+  历史事件 accident history
+  处置专家 expert
+  事故车辆 accident vehicle
+  处置进度 process
+  处置事件线 timeline
+  周边一公里 nearby
+  对话 chat
+  自然资源 ambient
+  资源 resources
+
+4. 知识库 library
+  车辆档案 vehicle
+  生产企业 factory
+  危化品 chemical
+  企业 company

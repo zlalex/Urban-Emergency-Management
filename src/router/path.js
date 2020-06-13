@@ -1,20 +1,17 @@
-const _import_ = require('@/router/_import_' + process.env.NODE_ENV + '.js')
-const datum = _import_('datum')
-const event = _import_('event')
+const NODE_ENV = process.env.NODE_ENV || 'production'
+const _import_ = require('@/router/_import_' + NODE_ENV + '.js')
+const dispose = _import_('dispose')
 const index = _import_('index')
+const register = _import_('register')
 const login = _import_('login')
+const library = _import_('library')
 const empty = _import_('empty')
-const datumAutomobile = _import_('datum-automobile')
-const datumCompany = _import_('datum-company')
-const datumCargo = _import_('datum-cargo')
 
 export default {
-  event,
+  dispose,
   index,
+  register,
   login,
-  datum,
+  library,
   empty,
-  datumAutomobile,
-  datumCompany,
-  datumCargo
 }
