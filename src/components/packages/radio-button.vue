@@ -1,10 +1,10 @@
 <template>
-  <div class="radio-button">
+  <div class="package-radio-button">
     <span
       v-for="(el, i) in data"
       :key="i"
       @click="handleChange(el)"
-      class="radio-button-item"
+      class="package-radio-button__item"
       :class="{
         active: value === el.value
       }"
@@ -31,12 +31,21 @@ export default {
 </script>
 
 <style lang="scss">
-.radio-button{
-	display: flex;
-	.radio-button-item{
-		flex: 1;
-		text-align: center;
-		line-height: 24px;
-	}
+@import "@/styles/_variable";
+.package-radio-button {
+  display: flex;
+  font-size: 14px;
+  line-height: 36px;
+  color: $basicThird;
+  text-align: center;
+  background-color: #fff;
+  .package-radio-button__item {
+    flex: 1;
+    cursor: pointer;
+    &.active {
+      color: #fff;
+      background-color: $basicThird;
+    }
+  }
 }
 </style>

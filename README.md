@@ -88,3 +88,13 @@ request.factory.js 对request前后拦截、cancel处理，并且处理不同的
   生产企业 factory
   危化品 chemical
   企业 company
+
+### 组件命名规范
+
+组件分为三类，页面级page，页面组件级component，功能组件级package。
+
+page>component>package.
+
+组件命名规范根据组件类别+文件名称。
+
+例如：page-library，component-library，package-radio-button

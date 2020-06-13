@@ -64,6 +64,7 @@ const paths = routes.reduce((total, route) => {
   if (route.path === '/404') {
     return total
   }
+
   if (route.children && route.children.length) {
     route.children.reduce((innerTotal, childRoute) => {
       innerTotal.push(`${route.path}/${childRoute.path}`)
@@ -85,6 +86,7 @@ VueRouter.beforeEach((to, from, next) => {
     next()
     return
   }
+
   if (!token) {
     token = getToken()
   }

@@ -1,0 +1,11 @@
+<template>
+  <div class="component-qrcode util-img-wrapper">
+    <img src="@/assets/img-qrcode.png" alt="">
+  </div>
+</template>
+
+<style lang="scss">
+.component-qrcode{
+  height: 100%;
+}
+</style>

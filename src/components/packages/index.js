@@ -1,7 +1,9 @@
 import RadioButton from './radio-button'
+import BasicButton from './basic-button'
 
-const compontents = [
+const components = [
   RadioButton,
+  BasicButton
 ]
 
 const install = Vue => {
@@ -9,7 +11,7 @@ const install = Vue => {
     return
   }
 
-  compontents.map(element => Vue.component(element.name, element))
+  components.map(element => Vue.component(element.name, element))
 }
 
 typeof window !== 'undefined' && window.Vue && install(window.Vue)
