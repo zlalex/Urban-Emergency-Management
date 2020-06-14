@@ -18,12 +18,12 @@ export default {
 @import "@/styles/_variable";
 .component-pki {
   text-align: center;
-  line-height: 200px;
+  line-height: 160px;
   .component-pki-button {
     width: 114px;
     line-height: 30px;
     color: #fff;
-    background-color: $basicThird;
+    background-color: $blue2;
   }
 }
 </style>

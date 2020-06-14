@@ -39,6 +39,15 @@
       clear: both;
     }
   }
+  &#{absolute} {
+    position: absolute;
+  }
+  &#{relative} {
+    position: absolute;
+  }
+  &#{fixed} {
+    position: fixed;
+  }
   &#{cursor-pointer} {
     cursor: pointer;
   }
@@ -50,13 +59,13 @@
     color: white;
   }
   &#{color-link} {
-    color: $blueSecond;
+    color: $blue2;
   }
   &#{color-error} {
-    color: $pinkSecond;
+    color: $red2;
   }
   &#{color-warning} {
-    color: $brownSecond;
+    color: $gold2;
   }
   &#{img-wrapper} {
     display: flex;

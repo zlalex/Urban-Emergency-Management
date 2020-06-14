@@ -1,4 +1,5 @@
 import {
+  Avatar,
   Form,
   FormItem,
   Input,
@@ -11,6 +12,7 @@ import {
 } from 'element-ui'
 
 const components = [
+  Avatar,
   Form,
   FormItem,
   Input,

@@ -1,8 +1,11 @@
+@import "@/styles/_variable";
+
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 ul,
@@ -18,4 +21,32 @@ body {
   height: 100%;
   font-size: 12px;
   line-height: 16px;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+}
+
+h1 {
+  font-size: $h1;
+}
+
+h2 {
+  font-size: $h2;
+}
+
+h3,
+p {
+  font-size: $h3;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 4px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgba(50, 50, 50, 0.2);
+}
+::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: rgba(100, 100, 100, 0.1);
+  box-shadow: inset 0 0 5px rgba(100, 100, 100, 0.1);
 }

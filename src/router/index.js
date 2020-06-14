@@ -80,7 +80,6 @@ const paths = routes.reduce((total, route) => {
 Vue.use(Router)
 
 const VueRouter = new Router({ routes })
-
 VueRouter.beforeEach((to, from, next) => {
   if (to.path === '/404' || (to.path === '/login' && !token)) {
     next()

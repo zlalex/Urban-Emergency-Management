@@ -36,7 +36,7 @@ export default {
   display: flex;
   font-size: 14px;
   line-height: 36px;
-  color: $basicThird;
+  color: $blue2;
   text-align: center;
   background-color: #fff;
   .package-radio-button__item {
@@ -44,7 +44,7 @@ export default {
     cursor: pointer;
     &.active {
       color: #fff;
-      background-color: $basicThird;
+      background-color: $blue2;
     }
   }
 }

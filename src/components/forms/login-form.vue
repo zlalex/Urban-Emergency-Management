@@ -33,7 +33,6 @@ export default {
 <style lang="scss">
 @import "@/styles/_variable";
 .component-login-form {
-  margin-top: 20px;
   .el-form-item {
     margin-bottom: 20px;
     &:last-child{
@@ -50,7 +49,7 @@ export default {
     width: 100%;
     color: #fff;
     line-height: 30px;
-    background-color: $basicThird;
+    background-color: $blue2;
   }
 }
 </style>
