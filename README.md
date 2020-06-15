@@ -57,7 +57,7 @@ request.factory.js 对request前后拦截、cancel处理，并且处理不同的
 1. 首页 index
   危化品企业 factory
   安全风险 safe
-  接报信息 accident
+  接报信息 accident response
   运输车 vehicle
   车辆监控 vehicle monitor
   危险源监控 source monitor
