@@ -1,8 +1,12 @@
 import dataType from '@/utils/dataType'
 
 export default function (params) {
-  dataType.notBasic(params) ? this.$router.push({
-    path: params.path,
-    query: params.query
-  }) : this.$router.push(params)
+  const path = dataType.notBasic(params) ? params.path : params
+  if (!this.$route || !this.$router) {
+    return
+  }
+  if (this.$route.path === path) {
+    return
+  }
+  this.$router.push(params)
 }
