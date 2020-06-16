@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import LayoutDefault from '@/components/layout/layout-default'
+import LayoutDefault from "@/components/layout/layout-default";
 
 const hasBaiduMapPath = ["/", "/dispose"];
 

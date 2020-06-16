@@ -4,8 +4,8 @@
       <layout-section title="安全生产">
         <index-factory />
         <div class="util-flex">
-          <index-safe />
-          <index-accident-response />
+          <index-safe class="page-index-safe" />
+          <index-accident-response class="page-index-accident-response" />
         </div>
       </layout-section>
       <layout-section class="page-index-section__auto" title="道路运输">
@@ -66,16 +66,25 @@ export default {
     IndexSourceMonitor,
     IndexSourceTour,
     IndexChemicalMonitor,
-    IndexChemicalVideo,
+    IndexChemicalVideo
   }
 };
 </script>
 
 <style lang="scss">
-.page-index{
-  .page-index-section__auto{
+.page-index {
+  .page-index-section__auto {
     flex: auto;
     overflow: auto;
+  }
+  .page-index-accident-response,
+  .page-index-safe {
+    flex: 1;
+    padding: 0 0 10px 0;
+  }
+  .page-index-safe {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 </style>

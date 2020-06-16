@@ -21,7 +21,7 @@ export default {
 .component-layout-section {
   margin-bottom: 10px;
   background-color: $bgColor1;
-  .component-layout-section__header{
+  .component-layout-section__header {
     font-size: 16px;
     line-height: 36px;
   }

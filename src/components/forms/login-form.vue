@@ -35,7 +35,7 @@ export default {
 .component-login-form {
   .el-form-item {
     margin-bottom: 20px;
-    &:last-child{
+    &:last-child {
       margin-bottom: 0;
     }
   }

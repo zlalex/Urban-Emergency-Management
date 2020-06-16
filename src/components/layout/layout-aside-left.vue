@@ -16,6 +16,6 @@ export default {
 
 <style lang="scss">
 .component-layout-aside-left {
-  left: 0;
+  left: 10px;
 }
 </style>

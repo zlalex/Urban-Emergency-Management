@@ -1,6 +1,6 @@
 <template>
   <div class="component-layout-default">
-    <layout-topbar/>
+    <layout-topbar />
     <router-view />
     <baidu-map />
   </div>
@@ -8,7 +8,7 @@
 
 <script>
 import BaiduMap from "@/components/map/baidu-map";
-import LayoutTopbar from '@/components/layout/layout-topbar'
+import LayoutTopbar from "@/components/layout/layout-topbar";
 
 export default {
   name: "layout-default",
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss">
-.component-layout-default{
+.component-layout-default {
   position: relative;
   height: 100%;
   width: 100%;

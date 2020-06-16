@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  name: 'basic-button'
-}
+  name: "basic-button"
+};
 </script>
 
 <style lang="scss">
