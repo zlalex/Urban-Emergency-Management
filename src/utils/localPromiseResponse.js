@@ -1,0 +1,1 @@
+export default data => new Promise(res => res({ data, status: true }))
