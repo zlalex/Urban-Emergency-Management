@@ -1,6 +1,10 @@
 <template>
   <section-group class="component-source-monitor" :title="title">
-    <echart-section class="component-source-monitor" canvas-name="source-monitor" width="400" />
+    <echart-section
+      class="component-source-monitor-canvas"
+      canvas-name="source-monitor"
+      width="400"
+    />
   </section-group>
 </template>
 
