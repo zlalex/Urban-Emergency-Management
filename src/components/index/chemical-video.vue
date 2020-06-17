@@ -1,7 +1,7 @@
 <template>
   <section-group class="component-chemical-video" :title="title">
     <echart-section
-      class="component-chemical-video-canvas"
+      class="component-chemical-video-chart"
       canvas-name="chemical-video"
       width="400"
     />

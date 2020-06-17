@@ -2,8 +2,8 @@
   <section-group class="component-factory" :title="title">
     <echart-section
       v-if="finish"
-      class="component-factory-canvas"
-      :canvas-options="factoryCanvasOptions"
+      class="component-factory-chart"
+      :canvas-options="factoryChartOptions"
       canvas-name="factory"
       width="400"
     />
@@ -16,7 +16,7 @@ import EchartSection from "@/components/echart/echart-section";
 import { grid, xColor, color, shadowTooltip } from "@/echarts/echart-option";
 import { factoryAsync } from "@/api/index";
 
-const factoryCanvasOptions = {
+const factoryChartOptions = {
   color,
   grid,
   tooltip: shadowTooltip,
@@ -53,7 +53,7 @@ export default {
   data: () => ({
     title: "危化品企业总量：227家",
     finish: false,
-    factoryCanvasOptions
+    factoryChartOptions
   }),
   mounted() {
     this.getFactoryAsync();
@@ -64,8 +64,8 @@ export default {
         const { status } = res;
         if (status) {
           const { xAxis, data } = res.data;
-          this.factoryCanvasOptions.xAxis[0].data = xAxis;
-          this.factoryCanvasOptions.series[0].data = data;
+          this.factoryChartOptions.xAxis[0].data = xAxis;
+          this.factoryChartOptions.series[0].data = data;
           this.finish = true
         }
       });

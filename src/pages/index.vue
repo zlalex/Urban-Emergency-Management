@@ -79,8 +79,10 @@ export default {
   }
   .page-index-accident-response,
   .page-index-safe {
-    flex: 1;
     padding: 0 0 10px 0;
+  }
+  .page-index-accident-response{
+    flex: auto;
   }
   .page-index-safe {
     padding-left: 10px;

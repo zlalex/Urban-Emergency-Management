@@ -1,7 +1,7 @@
 <template>
   <section-group class="component-vehicle-monitor" :title="title">
     <echart-section
-      class="component-vehicle-monitor-canvas"
+      class="component-vehicle-monitor-chart"
       canvas-name="vehicle-monitor"
       width="400"
     />

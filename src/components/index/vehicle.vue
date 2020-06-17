@@ -1,6 +1,6 @@
 <template>
   <section-group class="component-vehicle" :title="title">
-    <echart-section class="component-vehicle-canvas" canvas-name="vehicle" width="400" />
+    <echart-section class="component-vehicle-chart" canvas-name="vehicle" width="400" />
   </section-group>
 </template>
 

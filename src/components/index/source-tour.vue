@@ -1,6 +1,6 @@
 <template>
   <section-group class="component-source-tour" :title="title">
-    <echart-section class="component-source-tour-canvas" canvas-name="source-tour" width="400" />
+    <echart-section class="component-source-tour-chart" canvas-name="source-tour" width="400" />
   </section-group>
 </template>
 
