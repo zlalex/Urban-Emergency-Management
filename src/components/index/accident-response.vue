@@ -1,9 +1,14 @@
 <template>
   <section-group class="component-accident-response" :title="title">
     <ul class="component-accident-response__list">
-      <li v-for="(report,i) in tableData" :key="i" class="component-accident-response__item">
+      <li
+        v-for="(report,i) in tableData"
+        :key="i"
+        class="component-accident-response__item"
+        @click="handleReportItemClick"
+      >
         <span class="component-accident-response__date">{{report.date}}</span>
-        <span class="component-accident-response__report">{{report.report}}</span>
+        <span class="component-accident-response__report" :title="report.report">{{report.report}}</span>
       </li>
     </ul>
   </section-group>
@@ -31,6 +36,9 @@ export default {
           this.tableData = data.data;
         }
       });
+    },
+    handleReportItemClick() {
+      console.log("handleReportItemClick");
     }
   }
 };
@@ -47,18 +55,22 @@ export default {
   .component-accident-response__item {
     display: flex;
     padding: 5px 0;
+    line-height: 20px;
     cursor: pointer;
-    > span {
+    > span:last-child {
       white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 130px;
     }
-    &:nth-of-type(2n){
-      >span{
+    &:nth-of-type(2n) {
+      > span {
         color: $cyan2;
         background-color: $bgColor2;
       }
     }
   }
-  .component-accident-response__date{
+  .component-accident-response__date {
     padding: 2px 5px;
     margin-right: 2px;
   }
