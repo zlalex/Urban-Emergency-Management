@@ -68,7 +68,7 @@ export default {
     max-height: 48px;
     overflow: hidden;
   }
-  .component-accident__value{
+  .component-accident__value {
     font-size: 12px;
   }
   .component-accident__label {

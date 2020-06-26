@@ -7,8 +7,8 @@
       </layout-section>
 
       <layout-section>
-        <dispose-knowledge />
         <dispose-accident-history />
+        <dispose-knowledge />
         <dispose-expert />
         <dispose-accident-vehicle />
       </layout-section>
