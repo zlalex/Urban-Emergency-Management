@@ -15,3 +15,10 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.component-dispose-section{
+  font-size: 12px;
+  line-height: 20px;
+}
+</style>

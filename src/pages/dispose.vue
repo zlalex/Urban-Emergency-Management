@@ -79,7 +79,7 @@ export default {
 <style lang="scss">
 .page-dispose {
   .component-layout-section{
-    padding: 10px;
+    padding: 5px 10px;
   }
   .component-dispose-section {
     position: relative;

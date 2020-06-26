@@ -50,8 +50,6 @@ export default {
 <style lang="scss">
 @import "@/styles/_variable";
 .component-knowledge {
-  font-size: 12px;
-  line-height: 20px;
   .component-knowledge__button {
     padding: 0 5px;
     color: #fff;

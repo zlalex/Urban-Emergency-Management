@@ -60,7 +60,8 @@ export default {
 .component-scene {
   .component-scene__wrapper {
     display: flex;
-    padding: 5px 0;
+    padding: 10px 0;
+    margin: 0 5px;
   }
   .component-scene__item {
     flex-grow: 1;

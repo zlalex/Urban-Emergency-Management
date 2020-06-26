@@ -48,8 +48,6 @@ export default {
 <style lang="scss">
 @import "@/styles/_variable";
 .component-accident-history {
-  font-size: 12px;
-  line-height: 20px;
   .component-accident-history__discovery {
     display: flex;
     justify-content: space-between;

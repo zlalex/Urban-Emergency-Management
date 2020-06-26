@@ -64,7 +64,6 @@ export default {
 @import "@/styles/_variable";
 .component-accident {
   .component-accident__item {
-    line-height: 24px;
     max-height: 48px;
     overflow: hidden;
   }
