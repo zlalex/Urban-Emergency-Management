@@ -6,7 +6,7 @@
         <dispose-scene />
       </layout-section>
 
-      <layout-section>
+      <layout-section class="page-dispose-aside__auto">
         <dispose-accident-history />
         <dispose-knowledge />
         <dispose-expert />
@@ -20,7 +20,7 @@
         <dispose-chat />
       </layout-section>
 
-      <layout-section>
+      <layout-section class="page-dispose-aside__auto">
         <dispose-ambient />
         <dispose-resources />
       </layout-section>
@@ -78,7 +78,7 @@ export default {
 
 <style lang="scss">
 .page-dispose {
-  .component-layout-section{
+  .component-layout-section {
     padding: 5px 10px;
   }
   .component-dispose-section {
@@ -128,9 +128,13 @@ export default {
         border-bottom: 2px solid rgba(119, 200, 241, 0.65);
       }
     }
-    &:last-child{
+    &:last-child {
       margin-bottom: 0;
     }
+  }
+  .page-dispose-aside__auto {
+    flex: auto;
+    overflow: auto;
   }
 }
 </style>
