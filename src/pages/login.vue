@@ -52,7 +52,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("/images/img-sign-in.png");
+  background-image: url("../assets/img-sign-in.png");
   background-size: cover;
   .page-login-content__title {
     position: absolute;

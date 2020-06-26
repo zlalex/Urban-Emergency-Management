@@ -1,6 +1,6 @@
 <template>
   <div class="component-qrcode util-img-wrapper">
-    <img src="/images/img-qrcode.png" alt />
+    <img src="images/img-qrcode.png" alt />
   </div>
 </template>
 

@@ -1,6 +1,7 @@
 <template>
-  <dispose-section title="知识档案" class="component-accident-history"></dispose-section>
+  <dispose-section class="component-knowledge" title="天然气(甲烷)安全技术知识"></dispose-section>
 </template>
+
 <script>
 import DisposeSection from "@/components/dispose/dispose-section";
 

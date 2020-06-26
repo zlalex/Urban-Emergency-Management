@@ -2,7 +2,7 @@
   <section-group class="component-chemical-video" :title="title">
     <ul class="component-chemical-video__images">
       <li v-for="(item, i) in images" :key="i" @click="handleVideoClick">
-        <img :src="`/images/${item}`" alt />
+        <img :src="`images/${item}`" alt />
       </li>
     </ul>
   </section-group>

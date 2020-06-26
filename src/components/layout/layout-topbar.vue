@@ -9,7 +9,7 @@
         <el-avatar
           class="component-layout-topbar__avatar"
           size="medium"
-          src="/images/img-avatar.png"
+          src="images/img-avatar.png"
         ></el-avatar>
         <el-dropdown-menu class="component-layout-topbar__dropdown" slot="dropdown">
           <el-dropdown-item

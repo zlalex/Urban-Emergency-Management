@@ -2,7 +2,7 @@
   <section-group class="component-source-tour" :title="title">
     <ul class="component-source-tour__images">
       <li v-for="(item, i) in images" :key="i" @click="handleImageClick">
-        <img :src="`/images/${item}`" alt />
+        <img :src="`images/${item}`" alt />
       </li>
     </ul>
   </section-group>
