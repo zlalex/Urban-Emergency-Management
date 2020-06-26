@@ -23,7 +23,7 @@
             </p>
           </el-dropdown-item>
           <el-dropdown-item class="component-layout-topbar__member-item">
-            <p class="component-layout-topbar__logout">退出</p>
+            <p class="component-layout-topbar__logout" @click="handleLogout">退出</p>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -45,6 +45,8 @@
 </template>
 
 <script>
+import removeToken from "@/utils/removeToken";
+
 export default {
   data: () => ({
     weather: "上海: 多云 14℃ 风向：西北 风力：2级 风速：2.5M/S",
@@ -90,6 +92,14 @@ export default {
     },
     title() {
       return this.isDispose ? "处置" : "预警";
+    }
+  },
+  methods: {
+    handleLogout() {
+      removeToken();
+      setTimeout(() => {
+        location.reload();
+      }, 0);
     }
   }
 };

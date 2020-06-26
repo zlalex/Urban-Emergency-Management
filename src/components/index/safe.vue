@@ -67,6 +67,4 @@ export default {
 </script>
 
 <style lang="scss">
-.component-safe {
-}
 </style>

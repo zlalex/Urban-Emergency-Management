@@ -19,6 +19,7 @@ export default {
         const canvasElem = this.$refs[this.canvasName];
         this.chart = this.$echarts.init(canvasElem);
         this.chart.setOption(this.canvasOptions);
+        // this.autoShowTip();
       } catch (e) {}
     },
   }

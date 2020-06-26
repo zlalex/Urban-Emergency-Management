@@ -3,7 +3,9 @@ import FactoryData from '@/models/FactoryData'
 import SafetyStatus from '@/models/SafetyStatus'
 import AccidentResponse from '@/models/AccidentResponse'
 import VehicleCount from '@/models/VehicleCount'
-import VehicleMonitor from '../models/VehicleMonitor'
+import VehicleMonitor from '@/models/VehicleMonitor'
+import SourceMonitor from '@/models/SourceMonitor'
+import ChemicalMonitor from '@/models/ChemicalMonitor'
 
 export const factoryAsync = params => {
   if (!params) {
@@ -36,6 +38,20 @@ export const vehicleAsync = params =>{
 export const vehicleMonitorAsync = params =>{
   if (!params) {
     return localPromiseResponse(new VehicleMonitor())
+  }
+  // api response
+}
+
+export const sourceMonitorAsync = params =>{
+  if (!params) {
+    return localPromiseResponse(new SourceMonitor())
+  }
+  // api response
+}
+
+export const chemicalMonitorAsync = params =>{
+  if (!params) {
+    return localPromiseResponse(new ChemicalMonitor())
   }
   // api response
 }
