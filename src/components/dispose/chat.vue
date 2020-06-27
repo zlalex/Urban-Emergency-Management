@@ -124,7 +124,7 @@ export default {
       let index = this.messageIndex;
       this.textValue = this.message[index];
       this.messageIndex = ++index;
-      this.$BUS.$emit("HANDLE_EVENT", {
+      this.$EventBus.$emit("HANDLE_EVENT", {
         index,
         message: this.textValue
       });

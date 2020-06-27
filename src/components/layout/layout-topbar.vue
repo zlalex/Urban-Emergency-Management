@@ -71,11 +71,11 @@ export default {
       },
       {
         name: "企业信息管理系统",
-        path: "/"
+        path: "/library/company"
       },
       {
         name: "危化品信息管理系统",
-        path: "/"
+        path: "/library/chemical"
       },
       {
         name: "危化品事故处置系统",

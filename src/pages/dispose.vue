@@ -6,29 +6,29 @@
         <dispose-scene />
       </layout-section>
 
-      <layout-section class="page-dispose-aside__auto">
+      <layout-section class="page-dispose-aside__auto" v-show="!showTimelineAndTask">
         <dispose-accident-history />
         <dispose-knowledge />
         <dispose-expert />
         <dispose-accident-vehicle />
       </layout-section>
 
-      <layout-section class="page-dispose-aside__auto">
-        <dispose-timeline />
-        <dispose-task-message />
+      <layout-section class="page-dispose-aside__auto" v-show="showTimelineAndTask">
+        <dispose-timeline v-show="showTimeline && !showTaskMessage" />
+        <dispose-task-message v-show="showTaskMessage" />
       </layout-section>
-
     </layout-aside-left>
 
     <layout-aside-right>
       <layout-section>
-        <dispose-nearby />
-        <dispose-chat />
+        <dispose-nearby v-show="!showChat" />
+        <dispose-chat v-show="showChat" />
       </layout-section>
 
       <layout-section class="page-dispose-aside__auto">
-        <dispose-ambient />
-        <dispose-resources />
+        <dispose-ambient v-show="!showVideo" />
+        <dispose-resources v-show="!showVideo" />
+        <dispose-accident-video v-show="showVideo" />
       </layout-section>
     </layout-aside-right>
 
@@ -53,6 +53,7 @@ import DisposeResources from "@/components/dispose/resources";
 import DisposeTimeline from "@/components/dispose/timeline";
 import DisposeTaskMessage from "@/components/dispose/task-message";
 import DisposeProcess from "@/components/dispose/process";
+import DisposeAccidentVideo from "@/components/dispose/accident-video";
 
 /*
   事件信息 accident
@@ -85,7 +86,41 @@ export default {
     DisposeResources,
     DisposeTimeline,
     DisposeTaskMessage,
-    DisposeProcess
+    DisposeProcess,
+    DisposeAccidentVideo
+  },
+  data: () => ({
+    showTimeline: false,
+    showTaskMessage: false,
+    showChat: true,
+    showVideo: true
+  }),
+  computed: {
+    showTimelineAndTask() {
+      return this.showTimeline || this.showTaskMessage;
+    }
+  },
+  mounted() {},
+  methods: {
+    initEventBusListener() {
+      this.$EventBus.on("CHANGE_SHOW_TIMELINE", this.changeShowTimeline);
+      this.$EventBus.on("CHANGE_SHOW_TASK_MESSAGE", this.changeShowTaskMessage);
+      this.$EventBus.on("CHANGE_SHOW_CHAT", this.changeShowChat);
+      this.$EventBus.on("CHANGE_SHOW_VIDEO", this.changeShowVideo);
+    },
+    changeShowTimeline() {
+      this.showTimeline = !this.showTimeline;
+    },
+    changeShowTaskMessage() {
+      this.changeShowTimeline();
+      this.showTaskMessage = !this.showTaskMessage;
+    },
+    changeShowChat() {
+      this.showChat = !this.showChat;
+    },
+    changeShowVideo() {
+      this.showVideo = !this.showVideo;
+    }
   }
 };
 </script>
@@ -150,7 +185,7 @@ export default {
     flex: auto;
     overflow: auto;
   }
-  .page-dispose-process{
+  .page-dispose-process {
     position: absolute;
     bottom: 10px;
     z-index: 2;

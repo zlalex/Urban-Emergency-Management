@@ -61,7 +61,7 @@ export default {
   }
   .component-process__videos {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     padding: 10px 0;
   }
   .component-process__videos-item {
