@@ -1,11 +1,11 @@
 <template>
   <dispose-section class="component-nearby" title="周边一公里">
     <p v-for="(item, i) in nearbyData" :key="i" class="component-nearby__item">
-      <span class="component-nearby__item-label">{{item.type}}</span>
-      <span class="component-nearby__item-name">{{item.name}}</span>
-      <span class="component-nearby__item-address">{{item.address}}</span>
-      <span class="component-nearby__item-count">{{item.count}}</span>
-      <span class="component-nearby__item-current">{{item.current}}</span>
+      <span class="component-nearby__item-label" :title="item.type" >{{item.type}}</span>
+      <span class="component-nearby__item-name" :title="item.name" >{{item.name}}</span>
+      <span class="component-nearby__item-address" :title="item.address" >{{item.address}}</span>
+      <span class="component-nearby__item-count" :title="item.count" >{{item.count}}</span>
+      <span class="component-nearby__item-current" :title="item.current" >{{item.current}}</span>
     </p>
   </dispose-section>
 </template>
@@ -91,13 +91,13 @@ export default {
   .component-nearby__item-name {
     width: 50px;
   }
-  .component-nearby__item-address{
+  .component-nearby__item-address {
     width: 72px;
   }
-  .component-nearby__item-count{
+  .component-nearby__item-count {
     width: 65px;
   }
-  .component-nearby__item-current{
+  .component-nearby__item-current {
     width: 120px;
   }
 }

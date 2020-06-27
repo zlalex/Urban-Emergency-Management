@@ -8,7 +8,11 @@ import {
   MessageBox,
   Dropdown,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Timeline,
+  TimelineItem,
+  Steps,
+  Step,
 } from 'element-ui'
 
 const components = [
@@ -21,7 +25,11 @@ const components = [
   MessageBox,
   Dropdown,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Timeline,
+  TimelineItem,
+  Steps,
+  Step,
 ]
 
 

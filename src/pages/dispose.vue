@@ -12,6 +12,12 @@
         <dispose-expert />
         <dispose-accident-vehicle />
       </layout-section>
+
+      <layout-section class="page-dispose-aside__auto">
+        <dispose-timeline />
+        <dispose-task-message />
+      </layout-section>
+
     </layout-aside-left>
 
     <layout-aside-right>
@@ -25,6 +31,8 @@
         <dispose-resources />
       </layout-section>
     </layout-aside-right>
+
+    <dispose-process class="page-dispose-process" />
   </div>
 </template>
 
@@ -42,6 +50,9 @@ import DisposeNearby from "@/components/dispose/nearby";
 import DisposeChat from "@/components/dispose/chat";
 import DisposeAmbient from "@/components/dispose/ambient";
 import DisposeResources from "@/components/dispose/resources";
+import DisposeTimeline from "@/components/dispose/timeline";
+import DisposeTaskMessage from "@/components/dispose/task-message";
+import DisposeProcess from "@/components/dispose/process";
 
 /*
   事件信息 accident
@@ -71,7 +82,10 @@ export default {
     DisposeNearby,
     DisposeChat,
     DisposeAmbient,
-    DisposeResources
+    DisposeResources,
+    DisposeTimeline,
+    DisposeTaskMessage,
+    DisposeProcess
   }
 };
 </script>
@@ -135,6 +149,13 @@ export default {
   .page-dispose-aside__auto {
     flex: auto;
     overflow: auto;
+  }
+  .page-dispose-process{
+    position: absolute;
+    bottom: 10px;
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 </style>
