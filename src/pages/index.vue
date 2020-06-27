@@ -134,7 +134,7 @@ export default {
   }
   .page-index-category {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     bottom: 60px;
     left: 50%;
     transform: translateX(-50%);

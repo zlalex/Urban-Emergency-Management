@@ -56,6 +56,7 @@ export default {
     padding: 0 5px;
     border: 1px solid #e1e1e1;
     border-radius: 2px;
+    cursor: pointer;
   }
   .component-accident-vehicle__item {
     display: flex;

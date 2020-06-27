@@ -36,6 +36,7 @@ export default {
   }
   .component-ambient__image {
     height: 200px;
+    margin: 10px 0;
     img {
       width: 100%;
       height: 100%;
