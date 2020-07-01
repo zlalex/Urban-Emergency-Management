@@ -1,5 +1,5 @@
 <template>
-  <section-group class="component-vehicle" :title="title">
+  <section-group class="component-vehicle" :title="title" @titleClick="handleTitleClick">
     <echart-section
       v-if="finish"
       class="component-vehicle-chart"
@@ -69,6 +69,9 @@ export default {
           this.finish = true;
         }
       });
+    },
+    handleTitleClick() {
+      this.$EventBus.$emit("CHANGE_INDEX_CATEGORY", "chemicalType");
     }
   }
 };

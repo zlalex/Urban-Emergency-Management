@@ -7,6 +7,18 @@
 <script>
 import position from "@/config/shanghai-position";
 
+const ZhaBei = position[7];
+const randomPosition = (length = 6) => {
+  const result = [];
+  for (let i = 0, len = length; i < len; i++) {
+    result.push({
+      x: ZhaBei.x + Math.random() / 10,
+      y: ZhaBei.y + Math.random() / 10
+    });
+  }
+  return result;
+};
+
 export default {
   name: "baidu-map",
   mounted() {
@@ -17,7 +29,8 @@ export default {
     return {
       BaiduMap: null,
       map: null,
-      position: position[0]
+      position: position[0],
+      pointMap: {}
     };
   },
   computed: {
@@ -45,7 +58,62 @@ export default {
       this.map.enableScrollWheelZoom(true);
       this.renderBaiduMap();
     },
-    eventBusListener() {},
+    eventBusListener() {
+      this.$EventBus.$on(
+        "CHANGE_MAP_VEHICLE_MONITOR",
+        this.changeMapVehicleMonitor
+      );
+      this.$EventBus.$on(
+        "CHANGE_INDEX_TYPE_AND_CATEGORY",
+        this.changeIndexTypeAndCategory
+      );
+    },
+    changeMapVehicleMonitor() {
+      const key = "车辆监控";
+      if (!this.pointMap[key]) {
+        this.pointMap[key] = randomPosition();
+      }
+      this.renderPointInBaiduMap("vehicle", key);
+    },
+    changeIndexTypeAndCategory({ value }) {
+      const key = value;
+      if (key && !this.pointMap[key]) {
+        this.pointMap[key] = randomPosition();
+      }
+      this.renderPointInBaiduMap("point", key);
+    },
+    renderPointInBaiduMap(type, key) {
+      const BaiduMap = this.BaiduMap;
+      this.map.clearOverlays();
+      this.$nextTick(() => {
+        this.pointMap[key] &&
+          this.pointMap[key].length &&
+          this.pointMap[key].forEach((item, i) => {
+            const { x, y } = item;
+            const point = new BaiduMap.Point(x, y);
+            this.addMapMarker(point, type, i === 2);
+          });
+      });
+    },
+    addMapMarker(point, type, animate) {
+      const BaiduMap = this.BaiduMap;
+      const map = this.map;
+      const iconOptions = {};
+
+      if (type === "vehicle") {
+        iconOptions.icon = new BaiduMap.Icon(
+          "./images/img-car.png",
+          new BaiduMap.Size(40, 40)
+        );
+        console.log(iconOptions.icon);
+      }
+
+      const marker = iconOptions.icon
+        ? new BaiduMap.Marker(point, iconOptions)
+        : new BaiduMap.Marker(point);
+      !iconOptions.icon && animate && marker.setAnimation(2);
+      map.addOverlay(marker);
+    },
     renderBaiduMap() {
       if (this.isDispose) {
         this.renderDisposeMap();
@@ -68,7 +136,7 @@ export default {
       const map = this.map;
 
       map.clearOverlays && map.clearOverlays();
-      map.centerAndZoom(new BaiduMap.Point(x, y), 14);
+      map.centerAndZoom(new BaiduMap.Point(x, y), 12);
       type
         ? map.setMapStyle({ style: "dark" })
         : map.setMapStyle({ style: "normal" });

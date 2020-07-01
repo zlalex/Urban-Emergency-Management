@@ -24,7 +24,7 @@
         class="page-index-category__item"
         :class="categoryItemColor"
         v-for="(item, i) in currentType"
-        @click.native.stop="handleCategoryClick"
+        @click.native.stop="handleCategoryClick(item)"
         :key="i"
       >{{item}}</basic-button>
     </div>
@@ -87,7 +87,7 @@ export default {
     factoryType: ["生产企业", "经营企业", "运输企业", "仓储企业", "使用企业"],
     safeLelve: ["一级风险", "二级风险", "三级风险", "四级风险"],
     chemicalType: ["腐蚀", "易燃", "易爆"],
-    current: "factoryType"
+    current: ""
   }),
   computed: {
     currentType() {
@@ -95,9 +95,9 @@ export default {
         case "factoryType":
           return this.factoryType;
         case "safeLelve":
-          return this.factoryType;
+          return this.safeLelve;
         case "chemicalType":
-          return this.factoryType;
+          return this.chemicalType;
       }
       return [];
     },
@@ -109,6 +109,21 @@ export default {
           return "chemical";
       }
       return "factory";
+    }
+  },
+  mounted() {
+    this.$EventBus.$on("CHANGE_INDEX_CATEGORY", this.changeCategory);
+  },
+  methods: {
+    changeCategory(value) {
+      this.current = value;
+      value && this.handleCategoryClick(this.currentType[0]);
+    },
+    handleCategoryClick(item) {
+      this.$EventBus.$emit("CHANGE_INDEX_TYPE_AND_CATEGORY", {
+        type: this.current,
+        value: item
+      });
     }
   }
 };

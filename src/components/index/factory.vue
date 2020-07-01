@@ -1,5 +1,5 @@
 <template>
-  <section-group class="component-factory" :title="title">
+  <section-group class="component-factory" :title="title" @titleClick="handleTitleClick">
     <echart-section
       v-if="finish"
       class="component-factory-chart"
@@ -66,9 +66,12 @@ export default {
           const { xAxis, data } = res.data;
           this.factoryChartOptions.xAxis[0].data = xAxis;
           this.factoryChartOptions.series[0].data = data;
-          this.finish = true
+          this.finish = true;
         }
       });
+    },
+    handleTitleClick() {
+      this.$EventBus.$emit("CHANGE_INDEX_CATEGORY", "factoryType");
     }
   }
 };

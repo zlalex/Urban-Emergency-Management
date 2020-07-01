@@ -1,5 +1,5 @@
 <template>
-  <section-group class="component-vehicle-monitor" :title="title">
+  <section-group class="component-vehicle-monitor" :title="title" @titleClick="handleTitleClick">
     <ul class="component-vehicle-monitor__list">
       <li
         v-for="(monitor, i) in tableData"
@@ -42,6 +42,10 @@ export default {
     },
     handleMonitorItemClick() {
       console.log("handleMonitorItemClick");
+    },
+    handleTitleClick() {
+      this.$EventBus.$emit("CHANGE_MAP_VEHICLE_MONITOR");
+      this.$EventBus.$emit("CHANGE_INDEX_CATEGORY", "");
     }
   }
 };

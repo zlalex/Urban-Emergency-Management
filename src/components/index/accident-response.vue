@@ -1,5 +1,5 @@
 <template>
-  <section-group class="component-accident-response" :title="title">
+  <section-group class="component-accident-response" :title="title" @titleClick="handleTitleClick">
     <ul class="component-accident-response__list">
       <li
         v-for="(report,i) in tableData"
@@ -38,8 +38,9 @@ export default {
       });
     },
     handleReportItemClick() {
-      console.log("handleReportItemClick");
-    }
+      this.$GoRoute("/dispose");
+    },
+    handleTitleClick() {}
   }
 };
 </script>
@@ -55,7 +56,8 @@ export default {
   .component-accident-response__item {
     display: flex;
     padding: 5px 0;
-    line-height: 20px;
+    line-height: 24px;
+    align-items: center;
     cursor: pointer;
     > span:last-child {
       white-space: nowrap;
@@ -71,7 +73,7 @@ export default {
     }
   }
   .component-accident-response__date {
-    padding: 2px 5px;
+    padding: 0px 5px;
     margin-right: 2px;
   }
 }
