@@ -1,17 +1,16 @@
 <template>
   <section-group class="component-vehicle-monitor" :title="title" @titleClick="handleTitleClick">
     <ul class="component-vehicle-monitor__list">
-      <li
-        v-for="(monitor, i) in tableData"
-        :key="i"
-        class="component-vehicle-monitor__item"
-        @click="handleMonitorItemClick"
-      >
+      <li v-for="(monitor, i) in tableData" :key="i" class="component-vehicle-monitor__item">
         <span class="component-vehicle-monitor__numeric">{{monitor.numeric}}</span>
         <span class="component-vehicle-monitor__datum">{{monitor.datum}}</span>
         <span class="component-vehicle-monitor__datum">{{monitor.driver}}</span>
         <span class="component-vehicle-monitor__datum">{{monitor.fellow}}</span>
-        <span class="component-vehicle-monitor__datum" :title="monitor.company">{{monitor.company}}</span>
+        <span
+          class="component-vehicle-monitor__datum util-cursor-pointer"
+          :title="monitor.company"
+          @click="handleMonitorItemClick"
+        >{{monitor.company}}</span>
       </li>
     </ul>
   </section-group>
@@ -41,7 +40,7 @@ export default {
       });
     },
     handleMonitorItemClick() {
-      console.log("handleMonitorItemClick");
+      this.$EventBus.$emit('VEHICLE_WHEEL_PATH')
     },
     handleTitleClick() {
       this.$EventBus.$emit("CHANGE_MAP_VEHICLE_MONITOR");

@@ -67,20 +67,23 @@ export default {
         "CHANGE_INDEX_TYPE_AND_CATEGORY",
         this.changeIndexTypeAndCategory
       );
+
+      this.$EventBus.$on("VEHICLE_WHEEL_PATH", this.renderVehicleWheelPath);
     },
-    changeMapVehicleMonitor() {
-      const key = "车辆监控";
+    changeMapVehicleMonitor(key = "车辆监控") {
       if (!this.pointMap[key]) {
         this.pointMap[key] = randomPosition();
       }
       this.renderPointInBaiduMap("vehicle", key);
     },
-    changeIndexTypeAndCategory({ value }) {
+    changeIndexTypeAndCategory({ value, type }) {
       const key = value;
-      if (key && !this.pointMap[key]) {
+      if (key && type !== "chemicalType" && !this.pointMap[key]) {
         this.pointMap[key] = randomPosition();
+        this.renderPointInBaiduMap("point", key);
+      } else if (type === "chemicalType") {
+        this.changeMapVehicleMonitor(key);
       }
-      this.renderPointInBaiduMap("point", key);
     },
     renderPointInBaiduMap(type, key) {
       const BaiduMap = this.BaiduMap;
@@ -105,14 +108,16 @@ export default {
           "./images/img-car.png",
           new BaiduMap.Size(40, 40)
         );
-        console.log(iconOptions.icon);
       }
 
-      const marker = iconOptions.icon
-        ? new BaiduMap.Marker(point, iconOptions)
-        : new BaiduMap.Marker(point);
-      !iconOptions.icon && animate && marker.setAnimation(2);
+      // 先画图标再设置图标动画
+      const marker = new BaiduMap.Marker(point, iconOptions);
       map.addOverlay(marker);
+      !iconOptions.icon && animate && marker.setAnimation(2);
+      // 点击 point 显示详细信息
+    },
+    renderVehicleWheelPath() {
+      console.log("renderVehicleWheelPath");
     },
     renderBaiduMap() {
       if (this.isDispose) {
