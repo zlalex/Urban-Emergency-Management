@@ -9,7 +9,7 @@
         <span
           class="component-vehicle-monitor__datum util-cursor-pointer"
           :title="monitor.company"
-          @click="handleMonitorItemClick"
+          @click="handleMonitorItemClick(i)"
         >{{monitor.company}}</span>
       </li>
     </ul>
@@ -39,11 +39,11 @@ export default {
         }
       });
     },
-    handleMonitorItemClick() {
-      this.$EventBus.$emit('VEHICLE_WHEEL_PATH')
+    handleMonitorItemClick(index) {
+      this.$EventBus.$emit("VEHICLE_WHEEL_PATH", index);
     },
     handleTitleClick() {
-      this.$EventBus.$emit("CHANGE_MAP_VEHICLE_MONITOR");
+      this.$EventBus.$emit("CHANGE_MAP_VEHICLE_MONITOR", this.tableData.length);
       this.$EventBus.$emit("CHANGE_INDEX_CATEGORY", "");
     }
   }
