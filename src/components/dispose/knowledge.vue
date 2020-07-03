@@ -2,11 +2,10 @@
   <dispose-section class="component-knowledge" title="天然气(甲烷)安全技术知识">
     <div class="component-knowledge__info">
       <span>消防措施</span>
-      <a
+      <span
         class="component-knowledge__button component-knowledge__blank"
-        href="http://whp-home.discovery.tianrang.com/relational_canvas/WHPSG0002"
-        target="_blank"
-      >历史事件</a>
+        @click="$GoRoute('/library/chemical')"
+      >详细信息</span>
     </div>
     <p class="component-knowledge__item" v-for="(item, i) in knowledges" :key="i">
       <span class="component-knowledge__item-label">{{item.label}}：</span>

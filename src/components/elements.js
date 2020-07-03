@@ -15,7 +15,11 @@ import {
   Step,
   Dialog,
   Table,
-  TableColumn
+  TableColumn,
+  Menu,
+  MenuItem,
+  Breadcrumb,
+  BreadcrumbItem
 } from 'element-ui'
 
 const components = [
@@ -35,7 +39,11 @@ const components = [
   Step,
   Dialog,
   Table,
-  TableColumn
+  TableColumn,
+  Menu,
+  MenuItem,
+  Breadcrumb,
+  BreadcrumbItem
 ]
 
 

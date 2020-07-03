@@ -1,7 +1,12 @@
 <template>
   <section-group class="component-source-tour" :title="title">
     <ul class="component-source-tour__images">
-      <li v-for="(item, i) in images" :key="i" @click="handleImageClick">
+      <li
+        v-for="(item, i) in images"
+        :key="i"
+        class="util-cursor-pointer"
+        @click="handleImageClick"
+      >
         <img :src="`images/${item}`" alt />
       </li>
     </ul>
@@ -21,7 +26,7 @@ export default {
   }),
   methods: {
     handleImageClick() {
-      console.log("handleImageClick");
+      this.$GoRoute("/library/company");
     }
   }
 };

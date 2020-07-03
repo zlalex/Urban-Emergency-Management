@@ -2,7 +2,7 @@
   <dispose-section class="component-accident-vehicle" title="运输车辆">
     <div class="component-accident-vehicle__title">
       <span>运输车辆:沪A23212</span>
-      <span class="component-accident-vehicle__button">详细信息</span>
+      <span class="component-accident-vehicle__button" @click="$GoRoute('/library/vehicle')">详细信息</span>
     </div>
     <p v-for="(item, i) in vehicleData" :key="i" class="component-accident-vehicle__item">
       <span class="component-accident-vehicle__item-label">{{item.label}}:</span>
@@ -65,7 +65,7 @@ export default {
       line-height: 20px;
     }
   }
-  .component-accident-vehicle__item-label{
+  .component-accident-vehicle__item-label {
     width: 60px;
     color: $gold3;
   }
