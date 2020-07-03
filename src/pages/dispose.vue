@@ -33,6 +33,22 @@
     </layout-aside-right>
 
     <dispose-process class="page-dispose-process" />
+
+    <el-dialog
+      title="提示"
+      :visible.sync="dialogVisible"
+      width="400px"
+      :before-close="handleDialogClose"
+    >
+      <el-table :data="tableData" style="width: 100%">
+        <el-table-column prop="date" label="单位" width="120"></el-table-column>
+        <el-table-column prop="name" label="姓名" width="100"></el-table-column>
+        <el-table-column prop="address" label="地址" width="auto"></el-table-column>
+      </el-table>
+      <div class="util-align-center" slot="footer">
+        <span class="util-cursor-pointer" @click="changeShowChat">信息发布</span>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -92,40 +108,85 @@ export default {
   data: () => ({
     showTimeline: false,
     showTaskMessage: false,
-    showChat: true,
-    showVideo: true
+    showChat: false,
+    showVideo: false,
+    dialogVisible: false,
+    tableData: [
+      {
+        date: "市公安局",
+        name: "王大陆",
+        address: "13476549807"
+      },
+      {
+        date: "市民防办",
+        name: "赵国忠",
+        address: "13398705789"
+      },
+      {
+        date: "市应急救援总队",
+        name: "钱大宝",
+        address: "13115648709"
+      },
+      {
+        date: "市环保局",
+        name: "孙宝国",
+        address: "13198509860"
+      }
+    ]
   }),
   computed: {
     showTimelineAndTask() {
       return this.showTimeline || this.showTaskMessage;
     }
   },
-  mounted() {},
+  mounted() {
+    this.initEventBusListener();
+  },
   methods: {
     initEventBusListener() {
-      this.$EventBus.on("CHANGE_SHOW_TIMELINE", this.changeShowTimeline);
-      this.$EventBus.on("CHANGE_SHOW_TASK_MESSAGE", this.changeShowTaskMessage);
-      this.$EventBus.on("CHANGE_SHOW_CHAT", this.changeShowChat);
-      this.$EventBus.on("CHANGE_SHOW_VIDEO", this.changeShowVideo);
+      this.$EventBus.$on("CHANGE_SHOW_CHAT", this.showDialog);
+      this.$EventBus.$on("DISPOSE_TIMELINE_CHANGE", i => {
+        switch (i) {
+          case 5:
+            this.changeShowTaskMessage();
+            break;
+          default:
+            this.changeShowVideo();
+            this.changeShowTimeline();
+        }
+      });
     },
     changeShowTimeline() {
       this.showTimeline = !this.showTimeline;
+      if (this.showTimeline && this.showTaskMessage) {
+        this.changeShowTaskMessage();
+      }
     },
     changeShowTaskMessage() {
-      this.changeShowTimeline();
       this.showTaskMessage = !this.showTaskMessage;
+      if (this.showTimeline && this.showTaskMessage) {
+        this.changeShowTimeline();
+      }
     },
     changeShowChat() {
-      this.showChat = !this.showChat;
+      this.showChat = true;
+      this.dialogVisible = false;
     },
     changeShowVideo() {
       this.showVideo = !this.showVideo;
+    },
+    handleDialogClose() {
+      this.showDialog();
+    },
+    showDialog() {
+      this.dialogVisible = !this.dialogVisible;
     }
   }
 };
 </script>
 
 <style lang="scss">
+@import "@/styles/_variable";
 .page-dispose {
   .component-layout-section {
     padding: 5px 10px;
@@ -191,6 +252,27 @@ export default {
     z-index: 2;
     left: 50%;
     transform: translateX(-50%);
+  }
+  .el-dialog {
+    background-color: $bgColor1;
+    border: solid 1px $cyan1;
+    color: $cyan1;
+    .el-table,
+    .el-table::before,
+    tr,
+    td,
+    th {
+      color: $cyan1;
+      background-color: transparent;
+      border-bottom-color: transparent;
+    }
+    .el-dialog__body {
+      color: $cyan1;
+    }
+    .el-dialog__header,
+    .el-table__header {
+      display: none;
+    }
   }
 }
 </style>

@@ -124,10 +124,11 @@ export default {
       let index = this.messageIndex;
       this.textValue = this.message[index];
       this.messageIndex = ++index;
-      this.$EventBus.$emit("HANDLE_EVENT", {
-        index,
+      this.$EventBus.$emit("DISPOSE_STEP_MESSAGE", {
+        index: index,
         message: this.textValue
       });
+
       this.sendMessage();
     }
   }

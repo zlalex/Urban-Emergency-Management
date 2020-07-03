@@ -13,6 +13,9 @@ import {
   TimelineItem,
   Steps,
   Step,
+  Dialog,
+  Table,
+  TableColumn
 } from 'element-ui'
 
 const components = [
@@ -30,6 +33,9 @@ const components = [
   TimelineItem,
   Steps,
   Step,
+  Dialog,
+  Table,
+  TableColumn
 ]
 
 

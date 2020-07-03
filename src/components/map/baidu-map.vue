@@ -37,6 +37,20 @@ const messageMap = {
   }
 };
 
+const disposeSetpTitle = [
+  "合庆镇交警大队",
+  "合庆镇消防大队",
+  "合庆镇政府",
+  "市应急局事故处"
+];
+
+const disposeStepIcons = [
+  "icon-police.svg",
+  "icon-xiaofang.svg",
+  "icon-dispose.svg",
+  "icon-doctor.svg"
+];
+
 export default {
   name: "baidu-map",
   mounted() {
@@ -87,6 +101,7 @@ export default {
       );
 
       this.$EventBus.$on("VEHICLE_WHEEL_PATH", this.renderVehicleWheelPath);
+      this.$EventBus.$on("DISPOSE_STEP_MESSAGE", this.renderDisposeStepPoint);
     },
     changeMapVehicleMonitor(length, key = "车辆监控") {
       this.map.clearOverlays();
@@ -217,6 +232,59 @@ export default {
         vehicleIconMoving();
       }, 1e3);
     },
+    renderAccidentAmbit() {
+      const BaiduMap = this.BaiduMap;
+      const map = this.map;
+      const { x, y } = this.position;
+      const point = new BaiduMap.Point(x, y);
+      const marker = new BaiduMap.Marker(point); // 创建标注
+      map.addOverlay(marker);
+      marker.setAnimation(2);
+
+      const circle = new BaiduMap.Circle(point, 200, {
+        fillColor: "#FF5722",
+        strokeWeight: 1,
+        fillOpacity: 0.2,
+        strokeOpacity: 0.2
+      });
+      map.addOverlay(circle);
+    },
+    renderDisposeStepPoint({index, message}) {
+      if (index <= 1 || index > 5) {
+        return;
+      }
+      index = index - 2;
+      this.map.clearOverlays();
+
+      const BaiduMap = this.BaiduMap;
+      const map = this.map;
+      const { x, y } = this.position;
+      const icon = new BaiduMap.Icon(
+        `./images/${disposeStepIcons[index]}`,
+        new BaiduMap.Size(40, 40)
+      );
+      const point = new BaiduMap.Point(x, y);
+      const marker = new BaiduMap.Marker(point, { icon });
+      map.addOverlay(marker);
+      marker.setAnimation(2);
+
+      const circle = new BaiduMap.Circle(point, 200, {
+        fillColor: "#FF5722",
+        strokeWeight: 1,
+        fillOpacity: 0.2,
+        strokeOpacity: 0.2
+      });
+      map.addOverlay(circle);
+
+      const tips = new BaiduMap.InfoWindow(message, {
+        width: 200,
+        height: 100,
+        title: disposeSetpTitle[index]
+      });
+      marker.addEventListener("click", function() {
+        map.openInfoWindow(tips, point);
+      });
+    },
     renderBaiduMap() {
       if (this.isDispose) {
         this.renderDisposeMap();
@@ -230,7 +298,8 @@ export default {
     },
     renderDisposeMap() {
       const zoom = this.map.getZoom();
-      this.renderEmptyMap(zoom < 10 ? 12 : zoom, true);
+      this.renderEmptyMap(zoom < 10 ? 18 : zoom, true);
+      this.renderAccidentAmbit();
     },
     renderEmptyMap(zoom, type) {
       if (!this.map) {
@@ -242,7 +311,7 @@ export default {
 
       map.clearOverlays && map.clearOverlays();
       map.centerAndZoom(new BaiduMap.Point(x, y), zoom);
-
+      console.log("Render Baidu Map");
       type
         ? map.setMapStyle({ style: "dark" })
         : map.setMapStyle({ style: "normal" });
