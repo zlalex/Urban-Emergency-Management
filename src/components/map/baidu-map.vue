@@ -20,6 +20,7 @@ const randomPosition = (length = 6) => {
   return result;
 };
 
+// response data
 const messageMap = {
   factoryType: {
     title: "上海荣建化工厂",
@@ -297,8 +298,7 @@ export default {
       this.renderEmptyMap(zoom < 10 ? 12 : zoom);
     },
     renderDisposeMap() {
-      const zoom = this.map.getZoom();
-      this.renderEmptyMap(zoom < 10 ? 18 : zoom, true);
+      this.renderEmptyMap(18, true);
       this.renderAccidentAmbit();
     },
     renderEmptyMap(zoom, type) {

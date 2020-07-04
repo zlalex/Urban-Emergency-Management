@@ -26,7 +26,7 @@ export default {
   }),
   methods: {
     handleImageClick() {
-      this.$GoRoute("/library/company");
+      this.$GoRoute("/library/factory");
     }
   }
 };

@@ -22,6 +22,7 @@ export default {
     DisposeSection
   },
   data: () => ({
+    // response data
     knowledges: [
       {
         label: "灭火剂",
@@ -54,6 +55,7 @@ export default {
     color: #fff;
     border: 1px solid #e1e1e1;
     border-radius: 2px;
+    cursor: pointer;
   }
   .component-knowledge__info {
     display: flex;

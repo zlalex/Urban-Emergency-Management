@@ -148,9 +148,9 @@ export default {
     breadcrumdName() {
       switch (this.breadcrumd.name) {
         case "危化品档案":
-          return "生产企业";
-        case "生产企业档案":
           return "危化品";
+        case "生产企业档案":
+          return "生产企业";
         case "企业档案":
           return "企业名称";
         case "车辆档案":
@@ -200,7 +200,7 @@ export default {
   }
   .page-library-content {
     display: flex;
-    flex: auto;
+    flex: 1;
     flex-direction: column;
     background: #f5f5f5;
   }
@@ -275,6 +275,12 @@ export default {
     .dialog-content-right {
       flex: 1;
     }
+  }
+  .el-table td, .el-table th{
+    padding: 5px 0;
+  }
+  .el-table .cell{
+    font-size: 12px;
   }
 }
 </style>
